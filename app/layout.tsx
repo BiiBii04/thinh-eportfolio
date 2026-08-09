@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://thinhngo.io.vn"),
+  metadataBase: new URL("https://thinh-eportfolio.vercel.app"),
   title: {
     default: "Thinh Ngo — Business & Technology",
     template: "%s",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     description:
       "Final-year RMIT student. Pitch lead at LotusHacks 2026 (Top 20). ADC 2025 Semifinalist. Looking for an internship.",
     type: "website",
-    url: "https://thinhngo.io.vn",
+    url: "https://thinh-eportfolio.vercel.app",
     siteName: "Thinh Ngo",
   },
   twitter: {

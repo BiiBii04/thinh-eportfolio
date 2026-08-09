@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://thinhngo.io.vn/sitemap.xml",
-    host: "https://thinhngo.io.vn",
+    sitemap: "https://thinh-eportfolio.vercel.app/sitemap.xml",
+    host: "https://thinh-eportfolio.vercel.app",
   };
 }

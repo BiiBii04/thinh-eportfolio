@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Thinh Ngo, professional ePortfolio
 
-## Getting Started
+A public ePortfolio built for one career direction: **Business Analyst moving toward Product Owner, in enterprise software and emerging technology, with water treatment as sector depth.**
 
-First, run the development server:
+Built with Next.js and deployed on Vercel. Every artefact on the site carries a title, an author, a date, and a line on why it matters for that direction.
+
+## Sections
+
+- Home, About
+- Projects, six case studies with named contributions and honest limitations
+- Coursework
+- Experience
+- Leadership and volunteering
+- Education and credentials
+- Graduate capabilities, mapped to the artefacts that evidence them
+- Contact
+
+## Running it locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open <http://localhost:3000>.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Notes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Case-study source PDFs live in `public/`. Real-company course projects are published at the level agreed with the client or as academic case studies, with confidential material removed.

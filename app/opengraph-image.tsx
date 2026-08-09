@@ -89,7 +89,7 @@ export default function Image() {
           }}
         >
           <div style={{ display: "flex", color: INK, fontWeight: 600 }}>
-            thinhngo.io.vn
+            Thinh Ngo · ePortfolio
           </div>
           <div style={{ display: "flex", color: MUTED }}>
             Pitch-first. Shippable answers.

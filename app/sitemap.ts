@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://thinhngo.io.vn";
+const BASE = "https://thinh-eportfolio.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
