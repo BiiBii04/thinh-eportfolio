@@ -1,0 +1,25 @@
+import type { MetadataRoute } from "next";
+
+const BASE = "https://thinhngo.io.vn";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+
+  const routes = [
+    { path: "/", priority: 1 },
+    { path: "/work", priority: 0.9 },
+    { path: "/work/scf", priority: 0.8 },
+    { path: "/work/achievia", priority: 0.7 },
+    { path: "/work/wws", priority: 0.7 },
+    { path: "/work/apec", priority: 0.7 },
+    { path: "/resume", priority: 0.8 },
+    { path: "/contact", priority: 0.6 },
+  ];
+
+  return routes.map((r) => ({
+    url: `${BASE}${r.path}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: r.priority,
+  }));
+}
