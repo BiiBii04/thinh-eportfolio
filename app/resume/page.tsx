@@ -3,17 +3,17 @@ import PageFade from "../components/PageFade";
 export const metadata = {
   title: "Resume — Thinh Ngo",
   description:
-    "Final-year Business & Technology student at RMIT Vietnam. Open to internships in product, technology, and business roles.",
+    "Ngo Phuc Thinh. RMIT University Vietnam, dual major in Business and Technology plus Blockchain-enabled Business. Business Analyst moving toward Product Owner.",
 };
 
 const metrics = [
-  { v: "HD", k: "Top project in course — SCF capstone (RMIT)" },
-  { v: "Top 20 / 200", k: "LotusHacks 2026 — Achievia" },
-  { v: "Top 12", k: "RMIT ADC 2025 Semifinalist — WWS" },
-  { v: "Distinction", k: "Digital Business Design — APEC Water" },
-  { v: "1,000+", k: "Student inquiries resolved (Concierge, RMIT)" },
+  { v: "Industry panel", k: "SCF Protocol capstone pitched live, May 2026" },
+  { v: "Top 20 / 200", k: "LotusHacks 2026, Achievia" },
+  { v: "Top 12", k: "RMIT Accessibility Design Competition 2025, WWS" },
+  { v: "26 months", k: "ENACTUS External Relations, Mar 2024 to May 2026" },
+  { v: "1,000+", k: "Student inquiries resolved as Concierge, RMIT" },
   { v: "300+", k: "English-language calls handled" },
-  { v: "150+", k: "Individuals reached via ENACTUS fundraising" },
+  { v: "~10", k: "External guest speakers I was point of contact for" },
   { v: "100%", k: "Transaction accuracy in fundraising sales" },
 ];
 
@@ -67,16 +67,27 @@ export default function Resume() {
 
           <Section label="Education">
             <Entry
-              title="Bachelor of Business — RMIT University (Vietnam)"
-              sub="Major: Business & Technology · Track: Blockchain-Enabled Business"
-              date="October 2022 — Present"
+              title="Bachelor of Business, RMIT University Vietnam"
+              sub="Dual major: Business and Technology, plus Blockchain-enabled Business (renamed Digital Economy by RMIT)"
+              date="October 2022 to April 2027 (expected)"
             >
               <ul className="space-y-2">
                 <li>
-                  Researched AI applications across cybersecurity, retail, and edtech; earned a High Distinction for the report.
+                  Coursework complete September 2026, graduating April 2027.
                 </li>
                 <li>
-                  Presented findings to a 30-person cohort.
+                  Two full majors rather than one plus a track, which is what
+                  the interdisciplinary claim on this site rests on.
+                </li>
+                <li>
+                  Assessed work across both majors is on the{" "}
+                  <a
+                    href="/coursework"
+                    className="underline underline-offset-4 hover:text-accent"
+                  >
+                    coursework page
+                  </a>
+                  , with marks per assessment.
                 </li>
               </ul>
             </Entry>
@@ -84,9 +95,31 @@ export default function Resume() {
 
           <Section label="Experience">
             <Entry
-              title="Concierge Officer — RMIT Vietnam University"
-              sub="Ho Chi Minh City"
-              date="Feb 2025 — Aug 2025"
+              title="External Relations Member, ENACTUS RMIT Vietnam"
+              sub="Student-led social enterprise organisation"
+              date="March 2024 to May 2026"
+            >
+              <ul className="space-y-2">
+                <li>
+                  Named point of contact for roughly ten external guest speakers
+                  across two years and two months, and invited them
+                  successfully.
+                </li>
+                <li>
+                  Documented by the Event Scale 3 certificate, Ink Your Mark,
+                  Semester 1 2025.
+                </li>
+                <li>
+                  My longest-running commitment of any kind, and the clearest
+                  evidence I have of building networks outside the university.
+                </li>
+              </ul>
+            </Entry>
+
+            <Entry
+              title="Concierge Officer, RMIT University Vietnam"
+              sub="Ho Chi Minh City campus"
+              date="February 2025 to August 2025"
             >
               <ul className="space-y-2">
                 <li>
@@ -99,9 +132,9 @@ export default function Resume() {
             </Entry>
 
             <Entry
-              title="Fundraising Sales — ENACTUS RMIT SGS"
+              title="Fundraising Sales, ENACTUS RMIT SGS"
               sub="Student-led social enterprise"
-              date="Jul 2024 — Jan 2025"
+              date="July 2024 to January 2025"
             >
               <ul className="space-y-2">
                 <li>
@@ -116,13 +149,13 @@ export default function Resume() {
 
           <Section label="Selected projects">
             <Entry
-              title="SCF Protocol — blockchain supply chain finance"
-              sub="RMIT capstone · HD, top project in the course"
-              date="2026"
+              title="SCF Protocol, blockchain supply chain finance"
+              sub="RMIT capstone (ECON1598) · pitched live to an industry panel"
+              date="May 2026"
               href="/work/scf"
             >
               <p>
-                Designed the Verifiable Payables Token layer of a four-layer protocol on W3C Verifiable Credentials that lets banks cryptographically verify supply-chain payment obligations. Ran anchor-buyer interviews and led the ethics synthesis. Graded HD and ranked top project in the course.
+                Designed the Verifiable Payables Token layer of a four-layer protocol on W3C Verifiable Credentials that lets banks cryptographically verify supply-chain payment obligations. Ran anchor-buyer interviews and led the ethics synthesis. The panel called the stack over-engineered; I cut twelve components to five and documented where my reasoning still differed from theirs.
               </p>
             </Entry>
 

@@ -16,8 +16,8 @@ export default function Home() {
           <div className="md:hidden flex flex-col px-6 pt-24 pb-12">
             <LocationPill />
             <p className="mt-4 text-[11px] tracking-[0.18em] uppercase text-white/80 leading-relaxed">
-              <span className="block">Business &amp; Technology</span>
-              <span className="block">Student, RMIT Vietnam</span>
+              <span className="block">Business Analyst</span>
+              <span className="block">toward Product Owner</span>
             </p>
             <div className="relative w-full aspect-[5/6] mt-5">
               <Image
@@ -51,16 +51,18 @@ export default function Home() {
             </div>
 
             <div className="absolute right-10 top-1/2 -translate-y-1/2 text-right text-[11px] tracking-[0.18em] uppercase text-white/80 leading-relaxed whitespace-nowrap z-20">
-              <span className="block">Business &amp; Technology</span>
-              <span className="block">Student, RMIT Vietnam</span>
+              <span className="block">Business Analyst</span>
+              <span className="block">toward Product Owner</span>
             </div>
           </div>
 
           <div className="absolute bottom-0 inset-x-0 pointer-events-none z-10">
             <h1 className="font-medium leading-[0.82] tracking-[-0.04em] text-[clamp(3.25rem,15vw,16rem)] text-white">
-              <span className="sr-only">Thinh Ngo — Business and AI Enthusiast</span>
+              <span className="sr-only">
+                Thinh Ngo, Business Analyst toward Product Owner
+              </span>
               <Marquee
-                text="THINH NGO — BUSINESS AND AI ENTHUSIAST"
+                text="THINH NGO · BUSINESS ANALYST TOWARD PRODUCT OWNER"
                 separator="✦"
                 durationSec={45}
               />

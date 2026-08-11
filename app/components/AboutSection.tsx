@@ -18,18 +18,25 @@ export default function AboutSection() {
           className="md:col-span-8 max-w-3xl"
         >
           <h2 className="font-medium tracking-[-0.025em] leading-[1.08] text-[clamp(1.75rem,3.5vw,2.75rem)]">
-            I help teams turn fuzzy ideas into something a real person can
-            touch. Pitching first, learning to build with AI second. No
-            abstraction without a shippable answer attached.
+            I work out why a market is stuck, then decide whether a technology
+            actually fixes it. Usually the honest answer is no, and saying so is
+            the job.
           </h2>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-neutral-700">
-            I&rsquo;m the one who turns a room&rsquo;s vague idea into a pitch, a
-            prototype, and a number someone can act on. Across four projects
-            &mdash; a blockchain supply-chain-finance capstone (HD, top of
-            course), an AI study-abroad tool (Top 20 of 200 at LotusHacks), an
-            accessibility platform, and a digital-transformation blueprint
-            &mdash; the job was the same: find the real user pain, frame it, and
-            demo an answer that ships.
+            Construction contracts, warehouse handling, energy trading,
+            ride-hailing, supply chain finance, real estate. Six industries, and
+            I diagnosed every one the same way: find who knows something the
+            other side does not, price what that costs them, then test a
+            technology against that diagnosis instead of assuming it in. That is
+            the thread through everything on this site, and it is why the work is
+            grouped by what it proves rather than by industry.
+          </p>
+          <p className="mt-6 text-lg md:text-xl leading-relaxed text-neutral-700">
+            The clearest example is my capstone. An industry panel told me the
+            design was over-engineered, I cut it from twelve components to five,
+            and I wrote down exactly where I still disagreed with them and why
+            the enforcement layer had to stay. That argument is in the assessed
+            report, not just in my memory.
           </p>
         </motion.div>
 
@@ -41,9 +48,10 @@ export default function AboutSection() {
           className="md:col-span-4 flex flex-col items-start md:items-end gap-10"
         >
           <p className="text-[15px] md:text-base leading-[1.65] text-neutral-700 max-w-xs md:text-right">
-            Final-year Business &amp; Technology student at RMIT Vietnam,
-            Blockchain-Enabled Business track. Based in Ho Chi Minh City. Open
-            to internships.
+            RMIT University Vietnam, Bachelor of Business. Dual major in Business
+            and Technology plus Blockchain-enabled Business, which RMIT has since
+            renamed Digital Economy. Coursework complete September 2026,
+            graduating April 2027. Based in Ho Chi Minh City.
           </p>
 
           <TLink

@@ -1,62 +1,12 @@
 import { TLink as Link } from "../components/Transition";
 import PageFade from "../components/PageFade";
+import { CATEGORIES, PROJECTS, CAREER_DIRECTION } from "../data/portfolio";
 
-const projects = [
-  {
-    n: "01",
-    slug: "scf",
-    title: "SCF Protocol",
-    sub: "Blockchain-based supply chain finance for Vietnam's export suppliers",
-    meta: "RMIT Capstone · HD, top of course",
-    role: "Payables Token design, anchor-buyer interviews, ethics synthesis",
-    year: "2026",
-  },
-  {
-    n: "02",
-    slug: "achievia",
-    title: "Achievia",
-    sub: "AI study-abroad guidance for Vietnamese students",
-    meta: "LotusHacks 2026 · Top 20 of 200",
-    role: "Pitch lead, market research, live demo",
-    year: "2026",
-  },
-  {
-    n: "03",
-    slug: "wws",
-    title: "WWS",
-    sub: "Web-based workplace simulation for HR and people with disabilities",
-    meta: "RMIT ADC 2025 · Top 12 Semifinalist",
-    role: "Interface design, solution development, cost structure",
-    year: "2025",
-  },
-  {
-    n: "04",
-    slug: "apec",
-    title: "APEC Water",
-    sub: "Digital-transformation blueprint for a water-filtration company's operations",
-    meta: "RMIT ISYS2128 · Distinction",
-    role: "System architecture, network topology, solution development",
-    year: "2024",
-  },
-  {
-    n: "05",
-    slug: "microloan",
-    title: "Microloan Default",
-    sub: "ML credit-risk model for a Vietnamese microloan lender",
-    meta: "RMIT ECON1612 · Individual",
-    role: "Full ML pipeline, modelling, SHAP, screening rule",
-    year: "2025",
-  },
-  {
-    n: "06",
-    slug: "ups",
-    title: "UPS Location Model",
-    sub: "ML expansion lead-list for a parcel network's drop-box footprint",
-    meta: "RMIT ECON1612 · Team",
-    role: "Analytical lead, variable selection & EDA, business implications",
-    year: "2025",
-  },
-];
+export const metadata = {
+  title: "Work — Thinh Ngo",
+  description:
+    "Nine projects grouped by capability: design and build, technology and regulatory assessment, and analysis into decision. Every entry carries its title, author, date and why it matters for the career direction.",
+};
 
 export default function Work() {
   return (
@@ -65,49 +15,131 @@ export default function Work() {
         <div className="max-w-6xl mx-auto">
           <p className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-neutral-400" />
-            Selected work, 2025 — 2026
+            Selected work, 2024 to 2026
           </p>
 
-          <h2 className="font-medium tracking-[-0.035em] leading-[0.92] text-[clamp(2.5rem,8vw,7rem)] max-w-5xl mb-16 md:mb-24">
-            Things I helped ship.
+          <h2 className="font-medium tracking-[-0.035em] leading-[0.92] text-[clamp(2.5rem,8vw,7rem)] max-w-5xl mb-8">
+            Nine projects, one method.
           </h2>
 
-          <ul className="divide-y divide-neutral-300/80 border-t border-b border-neutral-300/80">
-            {projects.map((p) => (
-              <li key={p.slug} className="group">
-                <Link
-                  href={`/work/${p.slug}`}
-                  className="block md:grid md:grid-cols-12 md:gap-4 py-7 md:py-10 md:items-baseline hover:bg-foreground/[0.02] transition px-2 -mx-2 rounded-sm"
-                >
-                  <span className="block md:col-span-1 text-xs md:text-sm tabular-nums text-neutral-500">
-                    {p.n}
-                  </span>
-                  <div className="md:col-span-5 mt-1 md:mt-0">
-                    <h3 className="text-3xl md:text-5xl font-medium tracking-[-0.02em] group-hover:text-accent transition">
-                      {p.title}
-                    </h3>
-                    <p className="text-neutral-600 mt-1.5 md:mt-2 md:text-lg">{p.sub}</p>
-                  </div>
-                  <p className="md:col-span-4 mt-3 md:mt-0 text-sm text-neutral-700 leading-relaxed">
-                    {p.role}
-                  </p>
-                  <div className="md:col-span-2 mt-2 md:mt-0 md:text-right text-xs tracking-[0.16em] uppercase text-neutral-500">
-                    {p.meta}
-                    <span className="md:hidden"> · </span>
-                    <br className="hidden md:block" />
-                    {p.year}
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <p className="max-w-3xl text-lg md:text-xl leading-relaxed text-neutral-700 mb-20 md:mb-28">
+            These are grouped by what they prove I can do, not by industry or by
+            course. Read the three headings together and they describe one job:{" "}
+            {CAREER_DIRECTION.toLowerCase()} Every entry carries who made it,
+            when, and why it is here.
+          </p>
 
-          <p className="mt-12 text-sm text-neutral-500">
-            More writing and side projects coming. In the meantime, the{" "}
-            <Link href="/contact" className="underline underline-offset-4 hover:text-accent">
-              contact page
-            </Link>{" "}
-            is the fastest path.
+          <div className="space-y-24 md:space-y-32">
+            {CATEGORIES.map((cat) => {
+              const items = PROJECTS.filter((p) => p.category === cat.id);
+              if (items.length === 0) return null;
+              return (
+                <section key={cat.id}>
+                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 mb-10">
+                    <h3 className="text-2xl md:text-4xl font-medium tracking-[-0.02em]">
+                      {cat.name}
+                    </h3>
+                    <p className="text-sm md:text-base text-neutral-600 md:text-right md:max-w-md">
+                      {cat.claim}
+                    </p>
+                  </div>
+
+                  <ul className="divide-y divide-neutral-300/80 border-t border-b border-neutral-300/80">
+                    {items.map((p) => {
+                      const body = (
+                        <>
+                          <div className="md:grid md:grid-cols-12 md:gap-6 md:items-baseline">
+                            <span className="block md:col-span-1 text-xs md:text-sm tabular-nums text-neutral-500">
+                              {p.n}
+                            </span>
+                            <div className="md:col-span-7 mt-1 md:mt-0">
+                              <h4
+                                className={`text-3xl md:text-5xl font-medium tracking-[-0.02em] transition ${
+                                  p.hasPage ? "group-hover:text-accent" : ""
+                                }`}
+                              >
+                                {p.title}
+                              </h4>
+                              <p className="text-neutral-600 mt-1.5 md:mt-2 md:text-lg">
+                                {p.kicker}
+                              </p>
+                            </div>
+                            <div className="md:col-span-4 mt-3 md:mt-0 md:text-right text-xs tracking-[0.16em] uppercase text-neutral-500 leading-relaxed">
+                              {p.date}
+                              {p.outcome && (
+                                <>
+                                  <br />
+                                  <span className="text-accent normal-case tracking-normal text-[13px]">
+                                    {p.outcome}
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+
+                          <div className="md:grid md:grid-cols-12 md:gap-6 mt-5 md:mt-6">
+                            <p className="md:col-span-1" aria-hidden />
+                            <div className="md:col-span-11 space-y-3">
+                              <p className="text-sm text-neutral-600 leading-relaxed">
+                                {p.author}
+                              </p>
+                              <p className="text-[15px] md:text-base text-neutral-700 leading-relaxed max-w-3xl">
+                                {p.summary}
+                              </p>
+                              <p className="text-[15px] md:text-base leading-relaxed max-w-3xl border-l-2 border-accent/60 pl-4">
+                                <span className="uppercase tracking-[0.14em] text-[11px] text-neutral-500 mr-2">
+                                  Why it matters
+                                </span>
+                                {p.whyItMatters}
+                              </p>
+                              <p className="text-xs tracking-[0.16em] uppercase text-neutral-500 pt-1">
+                                {p.hasPage ? (
+                                  <span className="group-hover:text-accent transition">
+                                    Read the case study →
+                                  </span>
+                                ) : (
+                                  "Assessed coursework document, available on request"
+                                )}
+                              </p>
+                            </div>
+                          </div>
+                        </>
+                      );
+
+                      return (
+                        <li key={p.slug} className="group">
+                          {p.hasPage ? (
+                            <Link
+                              href={`/work/${p.slug}`}
+                              className="block py-8 md:py-12 hover:bg-foreground/[0.02] transition px-2 -mx-2 rounded-sm"
+                            >
+                              {body}
+                            </Link>
+                          ) : (
+                            <div className="py-8 md:py-12 px-2 -mx-2">{body}</div>
+                          )}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              );
+            })}
+          </div>
+
+          <p className="mt-20 text-sm text-neutral-500 max-w-3xl leading-relaxed">
+            Six of these have a full case study. Three are assessed coursework
+            documents where the caption is the artefact. Marks are not shown on
+            this page, because most of these projects draw on more than one
+            assessment and a single mark would land on the wrong document. Marks
+            appear on the{" "}
+            <Link
+              href="/coursework"
+              className="underline underline-offset-4 hover:text-accent"
+            >
+              coursework page
+            </Link>
+            , where one entry maps to one assessment.
           </p>
         </div>
       </section>

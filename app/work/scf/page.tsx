@@ -3,7 +3,7 @@ import CaseStudy from "../../components/CaseStudy";
 export const metadata = {
   title: "SCF Protocol — Thinh Ngo",
   description:
-    "HD, top project in the course. A blockchain protocol that lets banks verify supply-chain payment obligations, unlocking finance for Vietnam's export suppliers. I owned the Verifiable Payables Token layer, anchor-buyer interviews, and ethics synthesis.",
+    "A blockchain protocol that lets banks verify supply-chain payment obligations, unlocking finance for Vietnam's export suppliers. Pitched live to an industry panel. I owned the Verifiable Payables Token layer, anchor-buyer interviews, and ethics synthesis.",
 };
 
 export default function Page() {
@@ -14,13 +14,17 @@ export default function Page() {
       tagline="A blockchain protocol that turns confirmed export orders into working capital for Vietnam's tier-2/3 suppliers — no collateral, no anchor-buyer ERP."
       facts={[
         { label: "Course", value: "RMIT — ECON1598 Digital Economy Projects (capstone)" },
-        { label: "Result", value: "HD · top project in the course" },
+        {
+          label: "Panel",
+          value:
+            "Pitched live to Gary Liu (Co-Founder and CEO, Terminal 3; Chair, Web3 Harbour) and Jeffrey Tchui (Executive Director and Head of APAC, Hashgraph)",
+        },
         { label: "My role", value: "Payables Token design, anchor-buyer interviews, ethics synthesis" },
         { label: "Team", value: "4 — I owned the Verifiable Payables Token layer" },
         { label: "Stack", value: "W3C Verifiable Credentials, DIDs, blockchain (VIFC sandbox)" },
         { label: "Output", value: "Live protocol site + pitch" },
       ]}
-      tldr="Final-year capstone (HD, top of course). A protocol on W3C Verifiable Credentials that lets any bank verify supply-chain payment obligations — unlocking factoring for the 150k–200k Vietnamese suppliers shut out of formal credit. I owned the Verifiable Payables Token layer, anchor-buyer interviews, and ethics synthesis."
+      tldr="Final-year capstone, submitted 22 May 2026. A protocol on W3C Verifiable Credentials that lets any bank verify supply-chain payment obligations, unlocking factoring for the 150k–200k Vietnamese suppliers shut out of formal credit. I owned the Verifiable Payables Token layer, anchor-buyer interviews, and ethics synthesis. Section VII of the report records the panel calling the stack over-engineered, my cut from twelve components to five, and where my reasoning differed from theirs."
       blocks={[
         {
           heading: "The problem",

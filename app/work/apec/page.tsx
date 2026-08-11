@@ -3,7 +3,7 @@ import CaseStudy from "../../components/CaseStudy";
 export const metadata = {
   title: "APEC Water — Thinh Ngo",
   description:
-    "Distinction. A digital-transformation blueprint giving a US water-filtration brand real-time control over quality, inventory, and post-sale support. I owned the system architecture and network topology.",
+    "A digital-transformation blueprint giving a reverse-osmosis water-filtration business real-time control over quality, inventory, and post-sale support. I owned the system architecture and network topology.",
 };
 
 export default function Page() {
@@ -14,13 +14,13 @@ export default function Page() {
       tagline="A digital-transformation blueprint that gives a water-filtration company real-time control over quality, inventory, and post-sale support."
       facts={[
         { label: "Course", value: "RMIT — ISYS2128 Digital Business Design & Innovation" },
-        { label: "Result", value: "Distinction" },
+        { label: "Type", value: "Academic case study — the proposal was never sent" },
         { label: "My role", value: "System architecture, network topology, solution development" },
         { label: "Team", value: "4" },
         { label: "Client", value: "APEC Water — US RO-filtration brand (academic case study)" },
         { label: "Stack", value: "Oracle NetSuite, AWS IoT, Nyckel AI computer vision" },
       ]}
-      tldr="Team consulting project (Distinction) for APEC Water, a US reverse-osmosis brand. We traced the operational bottlenecks — hand-inspected QC, blind inventory, no post-sale visibility — to a centralized system on Oracle NetSuite, AWS IoT, and Nyckel AI computer vision. I owned the system architecture and network topology."
+      tldr="Team consulting project for APEC Water, a reverse-osmosis water filtration business. We traced the operational bottlenecks — hand-inspected QC, blind inventory, no post-sale visibility — to a centralized system on Oracle NetSuite, AWS IoT, and Nyckel AI computer vision. I owned the system architecture and network topology."
       blocks={[
         {
           heading: "The problem",
