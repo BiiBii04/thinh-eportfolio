@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { TLink } from "./Transition";
 
 const links = [
+  { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
   { href: "/coursework", label: "Coursework" },
   { href: "/leadership", label: "Leadership" },

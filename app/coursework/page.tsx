@@ -1,5 +1,8 @@
 import { TLink as Link } from "../components/Transition";
 import PageFade from "../components/PageFade";
+import Reveal from "../components/Reveal";
+import DocLinks from "../components/DocLinks";
+import { MarkScale } from "../components/Gauges";
 import {
   CATEGORIES,
   COURSEWORK,
@@ -10,147 +13,182 @@ import {
 export const metadata = {
   title: "Coursework — Thinh Ngo",
   description:
-    "Assessed coursework across a dual major in Business and Technology and Blockchain-enabled Business, with marks per assessment, what each deliverable was, and why it matters for the career direction.",
+    "Assessed coursework across a dual major in Business and Technology and Blockchain-enabled Business. Every entry shows the mark on RMIT's band scale, what the deliverable was, and the document itself.",
 };
 
 export default function CourseworkPage() {
   return (
     <PageFade>
-      <section className="min-h-screen pt-32 md:pt-40 pb-24 px-6 md:px-10">
+      <section className="min-h-screen bg-paper pt-32 md:pt-40 pb-24 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-neutral-400" />
             Coursework
           </p>
 
-          <h2 className="font-medium tracking-[-0.035em] leading-[0.92] text-[clamp(2.5rem,8vw,7rem)] max-w-5xl mb-8">
-            The record behind the work.
-          </h2>
+          <h1 className="font-medium tracking-[-0.035em] leading-[0.9] text-[clamp(2.5rem,8vw,7rem)] max-w-4xl">
+            Marked work,
+            <br />
+            marks and all.
+          </h1>
 
-          <p className="max-w-3xl text-lg md:text-xl leading-relaxed text-neutral-700">
-            {EDUCATION.majors}, {EDUCATION.org}, {EDUCATION.date}.{" "}
-            {EDUCATION.availability}.
-          </p>
+          <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12">
+            <p className="md:col-span-7 text-lg md:text-xl leading-relaxed text-neutral-700">
+              {EDUCATION.majors}. {EDUCATION.org}, {EDUCATION.date}.{" "}
+              {EDUCATION.availability}.
+            </p>
+            <div className="md:col-span-5 space-y-4 text-[15px] leading-relaxed text-neutral-600">
+              <p>
+                Marks are per assessment and normalised to a scale of 100. There
+                are no course-level grades here, because a course average hides
+                which piece of work earned what.
+              </p>
+              <p>
+                I have left off my highest mark anywhere, 88 for a set of
+                blockchain lab exercises, because a mark for operating a tool is
+                not evidence that I can decide anything. Every document is
+                downloadable.
+              </p>
+            </div>
+          </div>
 
-          <p className="max-w-3xl text-[15px] md:text-base leading-relaxed text-neutral-600 mt-5">
-            Marks are shown per assessment and normalised to a scale of 100, not
-            at course level. Everything published here sits in the Distinction or
-            High Distinction band, and I have left off assessments that do not
-            show judgement, including my highest mark anywhere: 88 for a set of
-            blockchain lab exercises. A mark for running a tool is not evidence I
-            can decide anything. {EDUCATION.note}
-          </p>
-
-          <div className="mt-20 md:mt-28 space-y-20 md:space-y-28">
+          <div className="mt-24 md:mt-36 space-y-24 md:space-y-32">
             {CATEGORIES.map((cat) => {
               const items = COURSEWORK.filter((c) => c.category === cat.id);
               if (items.length === 0) return null;
               return (
                 <section key={cat.id}>
-                  <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 mb-10">
-                    <h3 className="text-2xl md:text-4xl font-medium tracking-[-0.02em]">
-                      {cat.name}
-                    </h3>
-                    <p className="text-sm md:text-base text-neutral-600 md:text-right md:max-w-md">
-                      {cat.claim}
-                    </p>
-                  </div>
+                  <Reveal>
+                    <div className="border-t border-foreground/25 pt-5 mb-14 md:mb-20 grid md:grid-cols-12 gap-4 md:gap-12">
+                      <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em] leading-tight">
+                        {cat.name}
+                      </h2>
+                      <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
+                        {cat.claim}
+                      </p>
+                    </div>
+                  </Reveal>
 
-                  <ul className="border-t border-neutral-300/80">
+                  <div className="space-y-20 md:space-y-28">
                     {items.map((c) => (
-                      <li
-                        key={c.code + c.assessment}
-                        className="border-b border-neutral-300/80 py-8 md:py-12"
-                      >
-                        <div className="flex flex-wrap items-center gap-3 mb-4">
-                          <span className="text-xs tracking-[0.16em] uppercase bg-foreground/[0.06] px-2.5 py-1 rounded-full text-neutral-700">
-                            {c.band} {c.mark}
-                          </span>
-                          <span className="text-xs tracking-[0.16em] uppercase text-neutral-500">
-                            {c.code} · {c.assessment} · {c.date}
-                          </span>
-                        </div>
+                      <Reveal key={c.code + c.assessment}>
+                        <article className="grid md:grid-cols-12 gap-8 md:gap-12">
+                          {/* Left rail: the record. Course code, when, and where the mark lands. */}
+                          <div className="md:col-span-4 lg:col-span-3">
+                            <div className="md:sticky md:top-32">
+                              <p className="font-mono text-[11px] tracking-[0.16em] text-neutral-500 leading-relaxed">
+                                {c.code}
+                                <br />
+                                {c.assessment.toUpperCase()}
+                                <br />
+                                {c.date.toUpperCase()}
+                              </p>
+                              <div className="mt-6">
+                                <MarkScale mark={c.mark} band={c.band} />
+                              </div>
+                            </div>
+                          </div>
 
-                        <h4 className="text-2xl md:text-4xl font-medium tracking-[-0.02em] leading-[1.1] max-w-4xl">
-                          {c.title}
-                        </h4>
-                        <p className="mt-2 text-neutral-600 md:text-lg">
-                          {c.course}
-                        </p>
+                          {/* Right: the work. */}
+                          <div className="md:col-span-8 lg:col-span-9">
+                            <h3 className="text-2xl md:text-[2.5rem] font-medium tracking-[-0.025em] leading-[1.08] max-w-3xl">
+                              {c.title}
+                            </h3>
+                            <p className="mt-3 text-neutral-500 md:text-lg">
+                              {c.course}
+                            </p>
 
-                        <p className="mt-5 text-sm text-neutral-600 leading-relaxed max-w-3xl">
-                          {c.author}
-                        </p>
-                        <p className="mt-3 text-[15px] md:text-base text-neutral-700 leading-relaxed max-w-3xl">
-                          {c.summary}
-                        </p>
+                            <p className="mt-6 text-[15px] text-neutral-600 leading-relaxed max-w-2xl">
+                              {c.author}
+                            </p>
+                            <p className="mt-4 text-[17px] md:text-lg text-neutral-800 leading-[1.6] max-w-2xl">
+                              {c.summary}
+                            </p>
 
-                        <details className="mt-6 group max-w-3xl">
-                          <summary className="cursor-pointer list-none text-xs tracking-[0.16em] uppercase text-neutral-500 hover:text-accent transition">
-                            <span className="group-open:hidden">
-                              What I did →
-                            </span>
-                            <span className="hidden group-open:inline">
-                              Close ↑
-                            </span>
-                          </summary>
-                          <ul className="mt-5 space-y-3">
-                            {c.achievements.map((a) => (
-                              <li
-                                key={a}
-                                className="text-[15px] md:text-base text-neutral-700 leading-relaxed pl-5 relative"
-                              >
-                                <span
-                                  className="absolute left-0 top-[0.7em] size-1.5 rounded-full bg-neutral-400"
-                                  aria-hidden
-                                />
-                                {a}
-                              </li>
-                            ))}
-                          </ul>
-                        </details>
+                            <details className="mt-7 group max-w-2xl">
+                              <summary className="cursor-pointer list-none font-mono text-[10px] tracking-[0.18em] text-neutral-500 hover:text-accent transition inline-flex items-center gap-2">
+                                <span className="inline-block w-5 h-px bg-current" />
+                                <span className="group-open:hidden">
+                                  WHAT I ACTUALLY DID
+                                </span>
+                                <span className="hidden group-open:inline">
+                                  CLOSE
+                                </span>
+                              </summary>
+                              <ul className="mt-5 space-y-3.5">
+                                {c.achievements.map((a) => (
+                                  <li
+                                    key={a}
+                                    className="text-[15px] md:text-base text-neutral-700 leading-relaxed pl-6 relative"
+                                  >
+                                    <span
+                                      className="absolute left-0 top-0 font-mono text-[10px] text-accent"
+                                      aria-hidden
+                                    >
+                                      /
+                                    </span>
+                                    {a}
+                                  </li>
+                                ))}
+                              </ul>
+                            </details>
 
-                        <p className="mt-6 text-[15px] md:text-base leading-relaxed max-w-3xl border-l-2 border-accent/60 pl-4">
-                          <span className="uppercase tracking-[0.14em] text-[11px] text-neutral-500 mr-2">
-                            Why it matters
-                          </span>
-                          {c.whyItMatters}
-                        </p>
-                      </li>
+                            <div className="max-w-2xl">
+                              <DocLinks docs={c.docs} />
+                            </div>
+
+                            <p className="mt-8 text-[17px] md:text-lg leading-[1.6] max-w-2xl border-l-2 border-accent pl-5">
+                              <span className="block font-mono text-[10px] tracking-[0.18em] text-neutral-500 mb-1.5">
+                                WHY IT MATTERS
+                              </span>
+                              {c.whyItMatters}
+                            </p>
+                          </div>
+                        </article>
+                      </Reveal>
                     ))}
-                  </ul>
+                  </div>
                 </section>
               );
             })}
           </div>
 
-          <section className="mt-24 md:mt-32">
-            <h3 className="text-2xl md:text-4xl font-medium tracking-[-0.02em] mb-4">
-              Courses whose work is on the projects page
-            </h3>
-            <p className="text-[15px] md:text-base text-neutral-600 leading-relaxed max-w-3xl mb-10">
-              These five produced a project rather than a coursework entry, so
-              they are listed once and captioned once. No marks here either, for
-              the reason on the projects page.
-            </p>
-            <ul className="border-t border-neutral-300/80">
-              {COURSE_CROSSREFS.map((c) => (
-                <li key={c.code} className="border-b border-neutral-300/80">
-                  <Link
-                    href={`/work/${c.slug}`}
-                    className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-6 py-6 group"
-                  >
-                    <span className="text-lg md:text-2xl font-medium tracking-[-0.01em] group-hover:text-accent transition">
-                      {c.code} {c.course}
-                    </span>
-                    <span className="text-sm text-neutral-600 md:text-right shrink-0 group-hover:text-accent transition">
-                      {c.label} →
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+          <Reveal>
+            <section className="mt-28 md:mt-40 border-t border-foreground/25 pt-5">
+              <div className="grid md:grid-cols-12 gap-4 md:gap-12 mb-12">
+                <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em] leading-tight">
+                  Courses that produced a project
+                </h2>
+                <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
+                  These five have their work on the projects page instead, so
+                  they are captioned once rather than twice. No marks here
+                  either: most of these projects draw on more than one
+                  assessment, and a single mark would land on the wrong document.
+                </p>
+              </div>
+
+              <ul className="border-t border-neutral-300/80">
+                {COURSE_CROSSREFS.map((c) => (
+                  <li key={c.code} className="border-b border-neutral-300/80">
+                    <Link
+                      href={`/work/${c.slug}`}
+                      className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-8 py-6"
+                    >
+                      <span className="font-mono text-[11px] tracking-[0.16em] text-neutral-500 w-24 shrink-0 group-hover:text-accent transition">
+                        {c.code}
+                      </span>
+                      <span className="flex-1 text-lg md:text-2xl font-medium tracking-[-0.01em] group-hover:text-accent transition">
+                        {c.course}
+                      </span>
+                      <span className="text-sm text-neutral-500 md:text-right shrink-0 group-hover:text-accent transition">
+                        {c.label} →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </Reveal>
         </div>
       </section>
     </PageFade>

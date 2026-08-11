@@ -1,5 +1,6 @@
 import { TLink as Link } from "../components/Transition";
 import PageFade from "../components/PageFade";
+import DocLinks from "../components/DocLinks";
 import { CATEGORIES, PROJECTS, CAREER_DIRECTION } from "../data/portfolio";
 
 export const metadata = {
@@ -92,15 +93,11 @@ export default function Work() {
                                 </span>
                                 {p.whyItMatters}
                               </p>
-                              <p className="text-xs tracking-[0.16em] uppercase text-neutral-500 pt-1">
-                                {p.hasPage ? (
-                                  <span className="group-hover:text-accent transition">
-                                    Read the case study →
-                                  </span>
-                                ) : (
-                                  "Assessed coursework document, available on request"
-                                )}
-                              </p>
+                              {p.hasPage && (
+                                <p className="text-xs tracking-[0.16em] uppercase text-neutral-500 pt-1 group-hover:text-accent transition">
+                                  Read the case study →
+                                </p>
+                              )}
                             </div>
                           </div>
                         </>
@@ -116,7 +113,15 @@ export default function Work() {
                               {body}
                             </Link>
                           ) : (
-                            <div className="py-8 md:py-12 px-2 -mx-2">{body}</div>
+                            <div className="py-8 md:py-12 px-2 -mx-2">
+                              {body}
+                              <div className="md:grid md:grid-cols-12 md:gap-6">
+                                <p className="md:col-span-1" aria-hidden />
+                                <div className="md:col-span-11 max-w-2xl">
+                                  <DocLinks docs={p.docs} />
+                                </div>
+                              </div>
+                            </div>
                           )}
                         </li>
                       );
@@ -129,7 +134,7 @@ export default function Work() {
 
           <p className="mt-20 text-sm text-neutral-500 max-w-3xl leading-relaxed">
             Six of these have a full case study. Three are assessed coursework
-            documents where the caption is the artefact. Marks are not shown on
+            documents you can open directly from the card. Marks are not shown on
             this page, because most of these projects draw on more than one
             assessment and a single mark would land on the wrong document. Marks
             appear on the{" "}

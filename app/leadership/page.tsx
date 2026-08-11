@@ -1,105 +1,159 @@
 import PageFade from "../components/PageFade";
-import { LEADERSHIP, RECOGNITION } from "../data/portfolio";
+import Reveal from "../components/Reveal";
+import { SpanAxis, SpanBar } from "../components/Gauges";
+import { LEADERSHIP, RECOGNITION, type Entry } from "../data/portfolio";
 
 export const metadata = {
   title: "Leadership and recognition — Thinh Ngo",
   description:
-    "External relations, project leadership and volunteering across ENACTUS RMIT Vietnam and RMIT industry programmes, with the certificates that document them.",
+    "External relations, project leadership and volunteering across ENACTUS RMIT Vietnam and RMIT industry programmes, with the four signed certificates that document them.",
 };
 
-function EntryList({ entries }: { entries: typeof LEADERSHIP }) {
+function EntryRow({ e }: { e: Entry }) {
   return (
-    <ul className="border-t border-neutral-300/80">
-      {entries.map((e) => (
-        <li
-          key={e.title + e.date}
-          className="border-b border-neutral-300/80 py-8 md:py-12"
-        >
-          <div className="md:grid md:grid-cols-12 md:gap-6 md:items-baseline">
-            <div className="md:col-span-8">
-              <h3 className="text-2xl md:text-4xl font-medium tracking-[-0.02em] leading-[1.1]">
-                {e.title}
-              </h3>
-              <p className="mt-2 text-neutral-600 md:text-lg leading-relaxed">
-                {e.org}
+    <article className="grid md:grid-cols-12 gap-8 md:gap-12">
+      {/* Left rail: how long it ran, or who signed it. The anchor a mark would be. */}
+      <div className="md:col-span-4 lg:col-span-3">
+        <div className="md:sticky md:top-32">
+          <p className="font-mono text-[11px] tracking-[0.16em] text-neutral-500 uppercase leading-relaxed">
+            {e.date}
+          </p>
+          {e.span && (
+            <div className="mt-5">
+              <SpanBar from={e.span.from} to={e.span.to} />
+            </div>
+          )}
+          {e.signedBy && (
+            <div className="mt-5">
+              <p className="font-mono text-[10px] tracking-[0.18em] text-neutral-500">
+                SIGNED BY
+              </p>
+              <p className="mt-1.5 text-[13px] text-neutral-700 leading-snug">
+                {e.signedBy}
               </p>
             </div>
-            <p className="md:col-span-4 mt-3 md:mt-0 md:text-right text-xs tracking-[0.16em] uppercase text-neutral-500">
-              {e.date}
-            </p>
-          </div>
-
-          <p className="mt-5 text-[15px] md:text-base text-neutral-700 leading-relaxed max-w-3xl">
-            {e.summary}
-          </p>
-
-          {e.points && (
-            <ul className="mt-4 space-y-2.5 max-w-3xl">
-              {e.points.map((p) => (
-                <li
-                  key={p}
-                  className="text-[15px] md:text-base text-neutral-700 leading-relaxed pl-5 relative"
-                >
-                  <span
-                    className="absolute left-0 top-[0.7em] size-1.5 rounded-full bg-neutral-400"
-                    aria-hidden
-                  />
-                  {p}
-                </li>
-              ))}
-            </ul>
           )}
+        </div>
+      </div>
 
-          <p className="mt-6 text-[15px] md:text-base leading-relaxed max-w-3xl border-l-2 border-accent/60 pl-4">
-            <span className="uppercase tracking-[0.14em] text-[11px] text-neutral-500 mr-2">
-              Why it matters
-            </span>
-            {e.whyItMatters}
-          </p>
-        </li>
-      ))}
-    </ul>
+      <div className="md:col-span-8 lg:col-span-9">
+        <h3 className="text-2xl md:text-[2.5rem] font-medium tracking-[-0.025em] leading-[1.08] max-w-3xl">
+          {e.title}
+        </h3>
+        <p className="mt-3 text-neutral-500 md:text-lg leading-relaxed max-w-2xl">
+          {e.org}
+        </p>
+
+        <p className="mt-6 text-[17px] md:text-lg text-neutral-800 leading-[1.6] max-w-2xl">
+          {e.summary}
+        </p>
+
+        {e.points && (
+          <ul className="mt-5 space-y-3.5 max-w-2xl">
+            {e.points.map((p) => (
+              <li
+                key={p}
+                className="text-[15px] md:text-base text-neutral-700 leading-relaxed pl-6 relative"
+              >
+                <span
+                  className="absolute left-0 top-0 font-mono text-[10px] text-accent"
+                  aria-hidden
+                >
+                  /
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <p className="mt-8 text-[17px] md:text-lg leading-[1.6] max-w-2xl border-l-2 border-accent pl-5">
+          <span className="block font-mono text-[10px] tracking-[0.18em] text-neutral-500 mb-1.5">
+            WHY IT MATTERS
+          </span>
+          {e.whyItMatters}
+        </p>
+      </div>
+    </article>
   );
 }
 
 export default function LeadershipPage() {
   return (
     <PageFade>
-      <section className="min-h-screen pt-32 md:pt-40 pb-24 px-6 md:px-10">
+      <section className="min-h-screen bg-paper pt-32 md:pt-40 pb-24 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
-          <p className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
+          <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-neutral-400" />
             Leadership and recognition
           </p>
 
-          <h2 className="font-medium tracking-[-0.035em] leading-[0.92] text-[clamp(2.5rem,8vw,7rem)] max-w-5xl mb-8">
-            The part a project page cannot show.
-          </h2>
+          <h1 className="font-medium tracking-[-0.035em] leading-[0.9] text-[clamp(2.5rem,8vw,7rem)] max-w-4xl">
+            The half a project
+            <br />
+            page cannot show.
+          </h1>
 
-          <p className="max-w-3xl text-lg md:text-xl leading-relaxed text-neutral-700 mb-20 md:mb-28">
-            Analysis is one half of the job. The other half is getting people who
-            do not report to you to agree on something. This is where that
-            evidence lives, and it is also where I am weakest, which is why it
-            has its own page rather than a line on a resume.
-          </p>
+          <div className="mt-12 md:mt-16 grid md:grid-cols-12 gap-8 md:gap-12">
+            <p className="md:col-span-7 text-lg md:text-xl leading-relaxed text-neutral-700">
+              Analysis is one half of the job. The other half is getting people
+              who do not report to you to agree on something, and there is no
+              mark for that.
+            </p>
+            <p className="md:col-span-5 text-[15px] leading-relaxed text-neutral-600">
+              So the measures here are the two that can be checked: how long each
+              commitment actually ran, and who put their name to it. This is also
+              the area I am weakest in, which is why it has its own page instead
+              of a line on a resume.
+            </p>
+          </div>
 
-          <section>
-            <h3 className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-8">
-              Roles
-            </h3>
-            <EntryList entries={LEADERSHIP} />
+          <section className="mt-24 md:mt-36">
+            <Reveal>
+              <div className="border-t border-foreground/25 pt-5 mb-14 md:mb-20 grid md:grid-cols-12 gap-4 md:gap-12">
+                <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em]">
+                  Roles
+                </h2>
+                <div className="md:col-span-6 md:col-start-7">
+                  <SpanAxis />
+                  <p className="text-[13px] text-neutral-500 leading-relaxed mt-2">
+                    Every bar below is drawn against this axis, so the lengths are
+                    comparable. The 26-month one is the longest thing I have done.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+
+            <div className="space-y-20 md:space-y-28">
+              {LEADERSHIP.map((e) => (
+                <Reveal key={e.title + e.date}>
+                  <EntryRow e={e} />
+                </Reveal>
+              ))}
+            </div>
           </section>
 
-          <section className="mt-24 md:mt-32">
-            <h3 className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-8">
-              Certificates and recognition
-            </h3>
-            <p className="max-w-3xl text-[15px] md:text-base text-neutral-600 leading-relaxed mb-10">
-              Four items, each with a signed certificate on file. These are the
-              artefacts where somebody who is not me made the judgement, which is
-              why they are listed separately from the work they attach to.
-            </p>
-            <EntryList entries={RECOGNITION} />
+          <section className="mt-28 md:mt-40">
+            <Reveal>
+              <div className="border-t border-foreground/25 pt-5 mb-14 md:mb-20 grid md:grid-cols-12 gap-4 md:gap-12">
+                <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em] leading-tight">
+                  Certificates and recognition
+                </h2>
+                <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
+                  Four items, each with a signed certificate on file. These are
+                  the artefacts where somebody who is not me made the judgement,
+                  which is why the signatory is the first thing listed.
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="space-y-20 md:space-y-28">
+              {RECOGNITION.map((e) => (
+                <Reveal key={e.title + e.date}>
+                  <EntryRow e={e} />
+                </Reveal>
+              ))}
+            </div>
           </section>
         </div>
       </section>

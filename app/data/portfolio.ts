@@ -40,6 +40,14 @@ export const CATEGORIES: {
   },
 ];
 
+/** A published file. `kind` drives the label a reader sees before they click. */
+export type Doc = {
+  label: string;
+  href: string;
+  kind: "Report" | "Slides" | "Spreadsheet" | "Proposal";
+  note?: string;
+};
+
 export type Project = {
   slug: string;
   n: string;
@@ -55,6 +63,7 @@ export type Project = {
   hasPage: boolean;
   preview?: string;
   external?: { label: string; href: string };
+  docs?: Doc[];
 };
 
 export const PROJECTS: Project[] = [
@@ -76,6 +85,21 @@ export const PROJECTS: Project[] = [
     hasPage: true,
     preview: "/scf-preview.jpg",
     external: { label: "scfprotocol.xyz", href: "https://www.scfprotocol.xyz/" },
+    docs: [
+      {
+        label: "Business proposal",
+        href: "/econ1598-a3-scf-protocol-report.pdf",
+        kind: "Report",
+        note: "27 pages, 2,983 words",
+      },
+      {
+        label: "Pilot economics appendix",
+        href: "/econ1598-a3-scf-pilot-economics.xlsx",
+        kind: "Spreadsheet",
+        note: "Unit economics and the 24-month pilot model",
+      },
+      { label: "Pitch deck", href: "/scf-deck.pdf", kind: "Slides" },
+    ],
   },
   {
     slug: "achievia",
@@ -179,6 +203,13 @@ export const PROJECTS: Project[] = [
     whyItMatters:
       "Deciding whether a technology should be used at all is the core business-analyst judgement, and this is the one document where I make it rather than assume it.",
     hasPage: false,
+    docs: [
+      {
+        label: "Suitability assessment and proposal",
+        href: "/inte2581-a2-greenharvest.pdf",
+        kind: "Report",
+      },
+    ],
   },
   {
     slug: "power-ledger",
@@ -193,6 +224,14 @@ export const PROJECTS: Project[] = [
     whyItMatters:
       "The limitations section is the point. The binding constraint on the first problem is regulatory, so the platform routes around it rather than fixing it. Immutability does not guarantee input integrity. And an immutable ledger may conflict with the right to be forgotten under both Vietnam's PDPL and the GDPR.",
     hasPage: false,
+    docs: [
+      {
+        label: "Whitepaper analysis",
+        href: "/econ1558-a3-power-ledger.pdf",
+        kind: "Report",
+        note: "10 pages, 1,309 words",
+      },
+    ],
   },
   {
     slug: "singhealth",
@@ -209,6 +248,18 @@ export const PROJECTS: Project[] = [
     whyItMatters:
       "It is the earliest work on this site, and it is already product-owner shaped. January 2024 is a year before I first wrote down that this was the direction, so the work came first and the label came second.",
     hasPage: false,
+    docs: [
+      {
+        label: "Solution report",
+        href: "/isys3444-a3-singhealth-report.pdf",
+        kind: "Report",
+      },
+      {
+        label: "Pitch deck",
+        href: "/isys3444-a3-singhealth-slides.pdf",
+        kind: "Slides",
+      },
+    ],
   },
 ];
 
@@ -217,15 +268,27 @@ export type Coursework = {
   course: string;
   assessment: string;
   title: string;
-  mark: string;
-  band: string;
+  /** Normalised to a scale of 100. Drives the position of the marker on the band scale. */
+  mark: number;
+  band: "PA" | "CR" | "DI" | "HD";
   date: string;
   author: string;
   category: CategoryId;
   summary: string;
   achievements: string[];
   whyItMatters: string;
+  docs?: Doc[];
 };
+
+/** RMIT grade bands. The scale runs from the pass mark, not from zero. */
+export const BANDS = [
+  { code: "PA", floor: 50 },
+  { code: "CR", floor: 60 },
+  { code: "DI", floor: 70 },
+  { code: "HD", floor: 80 },
+];
+export const SCALE_MIN = 50;
+export const SCALE_MAX = 100;
 
 export const COURSEWORK: Coursework[] = [
   {
@@ -233,7 +296,7 @@ export const COURSEWORK: Coursework[] = [
     course: "Legal Considerations of AI, Big Data and Blockchain",
     assessment: "Assessment 3",
     title: "US healthcare data under HIPAA, NIST and the EU HLEG guidelines",
-    mark: "81.7",
+    mark: 81.7,
     band: "HD",
     date: "May 2024",
     author: "Individual",
@@ -248,13 +311,20 @@ export const COURSEWORK: Coursework[] = [
     ],
     whyItMatters:
       "It is the only substantial data-regulation evidence I have, and it is the training under the SCF Protocol ethics work and the sandbox reasoning, which would otherwise read as instinct.",
+    docs: [
+      {
+        label: "Legal analysis report",
+        href: "/law2619-a3-healthcare-hipaa-nist.pdf",
+        kind: "Report",
+      },
+    ],
   },
   {
     code: "ECON1558",
     course: "Frontiers of the Digital Economy",
     assessment: "Assessment 2",
     title: "Blockchain applied to warehouse storage and handling contracts",
-    mark: "80",
+    mark: 80,
     band: "HD",
     date: "Semester C 2025 to 2026",
     author:
@@ -270,13 +340,21 @@ export const COURSEWORK: Coursework[] = [
     ],
     whyItMatters:
       "This is the cleanest role attribution in my whole portfolio, because the deck credits authorship slide by slide with my student ID on it. On group work I only claim what I can point at.",
+    docs: [
+      {
+        label: "Group deck",
+        href: "/econ1558-a2-warehouse-contracts.pdf",
+        kind: "Slides",
+        note: "30 slides. Mine are 8, 13 and 14, each signed with my student ID",
+      },
+    ],
   },
   {
     code: "ECON1624",
     course: "Economic Foundation of the Digital World",
     assessment: "Assessment 1",
     title: "How AI and digital platforms transformed the ride-hailing industry",
-    mark: "80",
+    mark: 80,
     band: "HD",
     date: "March 2026",
     author: "Individual",
@@ -291,6 +369,14 @@ export const COURSEWORK: Coursework[] = [
     ],
     whyItMatters:
       "It ends on a recommendation with an adoption path attached, which is what separates analysis into decision from description. The industry was assigned rather than chosen, so I claim no selection judgement on it.",
+    docs: [
+      {
+        label: "Analysis deck",
+        href: "/econ1624-a1-ride-hailing.pdf",
+        kind: "Slides",
+        note: "16 slides",
+      },
+    ],
   },
 ];
 
@@ -310,13 +396,21 @@ export type Entry = {
   summary: string;
   points?: string[];
   whyItMatters: string;
+  /** "YYYY-MM". Drives the span bar. Omit `to` for a single-date event. */
+  span?: { from: string; to?: string };
+  /** Who signed the certificate. Attestation is the anchor where a mark would be. */
+  signedBy?: string;
 };
+
+/** The window the leadership span bars are drawn against. */
+export const TIMELINE = { from: "2023-01", to: "2026-09" };
 
 export const LEADERSHIP: Entry[] = [
   {
     title: "External Relations Member",
     org: "ENACTUS RMIT Vietnam",
     date: "March 2024 to May 2026",
+    span: { from: "2024-03", to: "2026-05" },
     summary:
       "Named point of contact for roughly ten external guest speakers across two years and two months, and invited them successfully. My longest-running commitment of any kind.",
     points: [
@@ -331,6 +425,7 @@ export const LEADERSHIP: Entry[] = [
     title: "Project Leader, ENCHANTUS Competition",
     org: "ENACTUS RMIT Vietnam, team of 6",
     date: "March to May 2024",
+    span: { from: "2024-03", to: "2024-05" },
     summary:
       "Led a six-person team to a placed finish on a social project, negotiating with ten shelters and running the event.",
     whyItMatters:
@@ -340,6 +435,7 @@ export const LEADERSHIP: Entry[] = [
     title: "RMIT Big Industry Challenge 2024",
     org: "A team of about 10, multi-disciplinary and multi-national, for Survival Skills Vietnam",
     date: "June 2024, a two-day programme",
+    span: { from: "2024-06" },
     summary:
       "A communications campaign for a real client, aimed at remote areas where digital literacy is low, so reach was the actual problem. A workshop, not a competition: no ranking, no placement, no prize.",
     whyItMatters:
@@ -351,7 +447,8 @@ export const RECOGNITION: Entry[] = [
   {
     title:
       "Certificate of Appreciation, Top 12 Teams, RMIT Accessibility Design Competition 2025",
-    org: "RMIT University, Careers, Alumni and Industry Relations. Signed by Manuela Spiga, Director.",
+    org: "RMIT University, Careers, Alumni and Industry Relations",
+    signedBy: "Manuela Spiga, Director",
     date: "2025",
     summary: "Awarded to Ngo Phuc Thinh, Team The WWS.",
     whyItMatters:
@@ -359,7 +456,8 @@ export const RECOGNITION: Entry[] = [
   },
   {
     title: "Certificate of Recognition, 2nd Runner Up, ENCHANTUS Competition",
-    org: "ENACTUS RMIT Vietnam. Signed by Lam Quoc Thinh, President Gen 14.",
+    org: "ENACTUS RMIT Vietnam",
+    signedBy: "Lam Quoc Thinh, President Gen 14",
     date: "Semester 1 2024",
     summary: "Awarded to Ngo Phuc Thinh.",
     whyItMatters:
@@ -368,8 +466,9 @@ export const RECOGNITION: Entry[] = [
   {
     title:
       "Certificate of Recognition, External Relations Member of Event Scale 3: Ink Your Mark",
-    org:
-      "ENACTUS RMIT Vietnam with the RMIT Student Club Program. Signed by Ta Uyen Tho, President Gen 15, and Dang Thi Ngoc Thuy, Student Club Activity Office.",
+    org: "ENACTUS RMIT Vietnam with the RMIT Student Club Program",
+    signedBy:
+      "Ta Uyen Tho, President Gen 15, and Dang Thi Ngoc Thuy, Student Club Activity Office",
     date: "Semester 1 2025",
     summary: "Awarded to Ngo Phuc Thinh.",
     whyItMatters:
@@ -377,7 +476,9 @@ export const RECOGNITION: Entry[] = [
   },
   {
     title: "RMIT Global Leader Experience, Hanoi",
-    org: "Common Purpose Charitable Trust. Signed by Adirupa Sengupta, Group Chief Executive.",
+    org: "Common Purpose Charitable Trust",
+    signedBy: "Adirupa Sengupta, Group Chief Executive",
+    span: { from: "2023-06" },
     date: "June 2023",
     summary:
       "Awarded to Thinh Ngo. One certificate for one programme. The items listed on my LinkedIn are the credentials RMIT stated participants would earn, not separate awards.",
@@ -417,6 +518,59 @@ export const EDUCATION = {
   whyItMatters:
     "Two full majors rather than one plus a track is the structural basis of the interdisciplinary claim, which is what RMIT means by expertise across fields rather than depth in one.",
 };
+
+/**
+ * RMIT's Graduate Capability Framework, in RMIT's own wording.
+ * Two dominant, one subordinate. Naming a weakness with a plan attached is the
+ * point of the framework, not a gap in it.
+ */
+export const CAPABILITIES: {
+  name: string;
+  weight: "Dominant" | "Growing";
+  rmitWording: string;
+  myReading: string;
+  evidence: { label: string; href?: string }[];
+}[] = [
+  {
+    name: "Digitally Adept",
+    weight: "Dominant",
+    rmitWording:
+      "The blend of the tool and the person using it, rather than knowledge of the tool.",
+    myReading:
+      "Anyone can open the same models I can. What is mine is which tools I combined and why, and whether I checked the output before I used it. I have four dated instances of documenting that check, two of them scoring generated answers against HELM Instruct, Stanford CRFM's published evaluation framework. All four predate any careers session telling me to do it.",
+    evidence: [
+      { label: "UPS location model, with a full AI assistance disclosure", href: "/work/ups" },
+      { label: "Microloan model: three models compared, leakage-free time split", href: "/work/microloan" },
+      { label: "This site, hand-built in Next.js rather than a page builder" },
+    ],
+  },
+  {
+    name: "Expert",
+    weight: "Dominant",
+    rmitWording:
+      "Not depth in one field. Seeing the links across fields and pulling them together on a real problem.",
+    myReading:
+      "A dual major is the structural half of this, and the method is the real half. Six industries diagnosed the same way: information asymmetry in a principal-agent setting, priced as transaction costs, then a technology tested against that diagnosis. Economics, law, systems design and finance have to be in the room at once for that to work.",
+    evidence: [
+      { label: "SCF Protocol: finance, blockchain, governance theory and ethics in one proposal", href: "/work/scf" },
+      { label: "US healthcare under HIPAA, NIST and the EU HLEG guidelines", href: "/coursework" },
+      { label: "APEC Water: operations mapping through to network topology", href: "/work/apec" },
+    ],
+  },
+  {
+    name: "Connected",
+    weight: "Growing",
+    rmitWording:
+      "Meaningful connections with peer, industry, government and community networks.",
+    myReading:
+      "Of the four networks RMIT names, my peer and community layers are solid and my industry and government layers are thin. Two years of external relations work and one capstone pitched to an industry panel is a start, not a network. What I am doing about it: alumni and Boolean search on LinkedIn, and the Career Ready Hub at R 1.1.033. I would rather name this than pad it.",
+    evidence: [
+      { label: "ENACTUS External Relations, 26 months, roughly ten external speakers", href: "/leadership" },
+      { label: "Anchor-buyer interviews on the SCF Protocol capstone", href: "/work/scf" },
+      { label: "Four multi-disciplinary teams across psychology, business and engineering" },
+    ],
+  },
+];
 
 export const CREDENTIALS = {
   note: "Short courses and badges completed alongside the degree, listed for completeness rather than as qualifications.",

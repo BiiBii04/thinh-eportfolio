@@ -61,16 +61,20 @@ export default function Page() {
       ]}
       artifacts={[
         {
-          label: "Live protocol — scfprotocol.xyz",
+          label: "Business proposal (27 pages, PDF)",
+          href: "/econ1598-a3-scf-protocol-report.pdf",
+        },
+        {
+          label: "Pilot economics appendix (XLSX)",
+          href: "/econ1598-a3-scf-pilot-economics.xlsx",
+        },
+        {
+          label: "Live protocol, scfprotocol.xyz",
           href: "https://www.scfprotocol.xyz/",
         },
         {
           label: "Pitch deck (PDF)",
           href: "/scf-deck.pdf",
-        },
-        {
-          label: "GitHub repository",
-          note: "Private — available on request",
         },
       ]}
       next={{ href: "/work/achievia", label: "Achievia" }}
