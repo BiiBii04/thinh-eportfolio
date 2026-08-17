@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Thinh Ngo — Business & Technology, building with AI";
+export const alt = "Thinh Ngo, Business Analyst toward Product Owner";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

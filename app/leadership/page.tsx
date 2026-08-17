@@ -4,7 +4,7 @@ import { SpanAxis, SpanBar } from "../components/Gauges";
 import { LEADERSHIP, RECOGNITION, type Entry } from "../data/portfolio";
 
 export const metadata = {
-  title: "Leadership and recognition — Thinh Ngo",
+  title: "Leadership and awards · Thinh Ngo",
   description:
     "External relations, project leadership and volunteering across ENACTUS RMIT Vietnam and RMIT industry programmes, with the four signed certificates that document them.",
 };
@@ -85,7 +85,7 @@ export default function LeadershipPage() {
         <div className="max-w-6xl mx-auto">
           <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-neutral-500 mb-6 flex items-center gap-3">
             <span className="inline-block w-8 h-px bg-neutral-400" />
-            Leadership and recognition
+            Leadership, volunteering and awards
           </p>
 
           <h1 className="font-medium tracking-[-0.035em] leading-[0.9] text-[clamp(2.5rem,8vw,7rem)] max-w-4xl">
@@ -137,7 +137,7 @@ export default function LeadershipPage() {
             <Reveal>
               <div className="border-t border-foreground/25 pt-5 mb-14 md:mb-20 grid md:grid-cols-12 gap-4 md:gap-12">
                 <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em] leading-tight">
-                  Certificates and recognition
+                  Awards and certificates
                 </h2>
                 <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
                   Four items, each with a signed certificate on file. These are

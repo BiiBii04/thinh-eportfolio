@@ -5,9 +5,9 @@ import { TLink } from "./Transition";
 
 const links = [
   { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
+  { href: "/work", label: "Projects" },
   { href: "/coursework", label: "Coursework" },
-  { href: "/leadership", label: "Leadership" },
+  { href: "/leadership", label: "Leadership & Awards" },
   { href: "/resume", label: "Resume" },
   { href: "/contact", label: "Contact" },
 ];

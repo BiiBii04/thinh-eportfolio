@@ -13,7 +13,7 @@
  */
 
 export const CAREER_DIRECTION =
-  "Business Analyst moving toward Product Owner, in enterprise software and emerging technology, with water treatment as sector depth.";
+  "Business Analyst moving toward Product Owner, in enterprise software and emerging technology.";
 
 export type CategoryId = "design" | "assessment" | "decision";
 
@@ -48,6 +48,9 @@ export type Doc = {
   note?: string;
 };
 
+/** The three capabilities this site argues. Tags link back to /about. */
+export type CapabilityName = "Digitally Adept" | "Expert" | "Connected";
+
 export type Project = {
   slug: string;
   n: string;
@@ -59,6 +62,10 @@ export type Project = {
   outcome?: string;
   summary: string;
   whyItMatters: string;
+  /** What the experience taught me. Case-study pages close on this. */
+  taught?: string;
+  /** Which of the three capabilities the work built. */
+  capabilities?: CapabilityName[];
   /** Case-study page exists at /work/<slug>. Otherwise the card is the artefact. */
   hasPage: boolean;
   preview?: string;
@@ -82,6 +89,9 @@ export const PROJECTS: Project[] = [
       "Tier-2 and tier-3 Vietnamese suppliers cannot turn purchase orders into working capital, so they borrow informally at around 22%. A permissioned consortium protocol under VIFC sandbox status, deliberately not a single-owner platform.",
     whyItMatters:
       "Section VII of the report records the panel calling the stack over-engineered, my cut from twelve components to five, and where my reasoning differed from theirs. Taking criticism, acting on it, and defending a boundary with evidence is the behaviour I want to be hired for, and this is the only place it exists on the record.",
+    taught:
+      "That a signature is a behaviour before it is a cryptographic act. The design only holds if the buyer's purchasing and finance teams already agree with each other, so I moved the incentives into the protocol instead of assuming cooperation. I also learned to cut my own work on someone else's evidence and still say which part I was keeping.",
+    capabilities: ["Expert", "Connected"],
     hasPage: true,
     preview: "/scf-preview.jpg",
     external: { label: "scfprotocol.xyz", href: "https://www.scfprotocol.xyz/" },
@@ -115,6 +125,9 @@ export const PROJECTS: Project[] = [
       "A study-abroad coaching product scoped, built and demoed inside a 36-hour hackathon, then defended in front of judges.",
     whyItMatters:
       "Scoping under a hard constraint and explaining technical work to a room that is not technical are the two things a product owner does every week. I fielded the judges' questions on my own.",
+    taught:
+      "That the demo is the argument. With 36 hours I spent a disproportionate share of them on what the judges would see rather than on what we had built, and that was the right call. It is also where I learned how fast a scope has to be cut when the deadline is fixed and the team is four people.",
+    capabilities: ["Digitally Adept"],
     hasPage: true,
     preview: "/achievia-preview.png",
   },
@@ -134,6 +147,9 @@ export const PROJECTS: Project[] = [
       "We started on every major disability, mentors called it unshippable, and we narrowed to neurodivergent and visually impaired users and rebuilt the flows around them.",
     whyItMatters:
       "It is the scoping story a product owner is hired for, and it carries a change of mind I never got to build: HR will not log into a separate platform, so this should have been a plug-in inside tools they already use.",
+    taught:
+      "That distribution decides whether a product gets used, and that a mentor telling you the thing is unshippable is worth more than a mentor telling you it is promising. We started on every major disability because it felt fairer, and narrowing to two user groups is what made it designable at all.",
+    capabilities: ["Expert", "Connected"],
     hasPage: true,
     preview: "/wws-preview.png",
   },
@@ -150,7 +166,10 @@ export const PROJECTS: Project[] = [
     summary:
       "Process mapping with Rich Picture, BPMN and Fishbone analysis, the bottleneck traced to quality control, and a costed five-year system with ROI and payback. Academic case study, and the proposal was never sent.",
     whyItMatters:
-      "This is the sector depth, and the one artefact where the direction, the industry and the method meet. The course description is the only one in either of my majors that names business analysis outright.",
+      "It is the closest thing I have to a business analyst brief carried end to end: map the process, find the constraint, then cost the system that fixes it. The course description is also the only one in either of my majors that names business analysis outright.",
+    taught:
+      "That the bottleneck is rarely where the client points. The complaint was about output and the constraint was quality control, and process mapping is what found it. Asking people where the problem is would not have.",
+    capabilities: ["Expert"],
     hasPage: true,
     preview: "/apec-preview.png",
   },
@@ -166,6 +185,9 @@ export const PROJECTS: Project[] = [
       "A plain screening rule that isolates 8.4% of applicants at a 54.6% default rate against 7.3% for the rest. Built leakage-free on purpose with a time-based split.",
     whyItMatters:
       "The model is not the deliverable, the rule is. A credit officer can apply it without running anything. Synthetic teaching dataset, and one feature carries most of the signal, so the method is the value and not the score.",
+    taught:
+      "That a model nobody can act on is not a deliverable. The screening rule came after the model and it is the only part of the work a credit officer could use on Monday morning. Splitting by application date rather than at random also taught me how easily a good score hides a leak.",
+    capabilities: ["Digitally Adept"],
     hasPage: true,
     preview: "/microloan-preview.png",
   },
@@ -182,6 +204,9 @@ export const PROJECTS: Project[] = [
       "Public census data becomes a shortlist of areas with no current drop box and predicted suitability above 70%, at a recommended 60% threshold, piloted before rollout. Precision is 50.8%, so it halves the search space rather than picking winners.",
     whyItMatters:
       "It answers the question a product owner is actually asked, which is where to put the next thing and why. The repository is public, so it is the one artefact a stranger can audit end to end.",
+    taught:
+      "That precision at 50.8% is still useful once you say what it is for. It halves the search space, it does not pick winners, and writing that limit down was harder than improving the number would have been. Publishing the AI assistance disclosure with it was the same instinct.",
+    capabilities: ["Digitally Adept"],
     hasPage: true,
     preview: "/ups-preview.png",
     external: {
@@ -384,7 +409,8 @@ export const COURSEWORK: Coursework[] = [
 export const COURSE_CROSSREFS = [
   { code: "ECON1598", course: "Digital Economy Projects (capstone)", slug: "scf", label: "SCF Protocol" },
   { code: "ISYS2128", course: "Digital Business Design and Innovation", slug: "apec", label: "APEC Water" },
-  { code: "ECON1612", course: "Big Data, Machine Learning and Society", slug: "microloan", label: "Microloan default prediction and the UPS location model" },
+  { code: "ECON1612", course: "Big Data, Machine Learning and Society, Assessment 2", slug: "microloan", label: "Microloan default prediction" },
+  { code: "ECON1612", course: "Big Data, Machine Learning and Society, Assessment 3", slug: "ups", label: "UPS location suitability model" },
   { code: "INTE2581", course: "Digital Economy and Blockchain Applications", slug: "greenharvest", label: "GreenHarvest" },
   { code: "ISYS3444", course: "Introduction to Enterprise Artificial Intelligence", slug: "singhealth", label: "SingHealth CyberAI" },
 ];
@@ -569,6 +595,56 @@ export const CAPABILITIES: {
       { label: "Anchor-buyer interviews on the SCF Protocol capstone", href: "/work/scf" },
       { label: "Four multi-disciplinary teams across psychology, business and engineering" },
     ],
+  },
+];
+
+/**
+ * Skills, each with the artefact that evidences it. The brief clarification asks
+ * for skills AND capabilities, each supported by evidence, so a skill with no
+ * link does not belong in this list. Rendered on /resume and /about.
+ */
+export const SKILLS: { skill: string; evidence: string; href: string }[] = [
+  {
+    skill:
+      "Requirements and process modelling: BPMN, Rich Picture, Fishbone, FURPS, MoSCoW",
+    evidence: "APEC Water, mapped to a quality-control bottleneck",
+    href: "/work/apec",
+  },
+  {
+    skill: "Stakeholder interviews and external relations",
+    evidence:
+      "Anchor-buyer interviews on the capstone, and ten external speakers over 26 months",
+    href: "/leadership",
+  },
+  {
+    skill:
+      "Predictive modelling and honest validation: XGBoost, logistic regression, time-based splits",
+    evidence: "Microloan screening rule and the UPS location model, both public",
+    href: "/work/ups",
+  },
+  {
+    skill:
+      "Regulatory analysis: HIPAA, the NIST framework, EU HLEG guidelines, Vietnam's PDPL",
+    evidence: "A marked legal analysis built on In re Anthem",
+    href: "/coursework",
+  },
+  {
+    skill:
+      "Economic diagnosis: transaction costs, principal-agent problems, multi-sided markets",
+    evidence:
+      "Warehouse contracts under Williamson, and Grab's platform evolution",
+    href: "/coursework",
+  },
+  {
+    skill: "Product scoping under constraint, and pitching the result live",
+    evidence:
+      "Achievia in 36 hours, and the capstone in front of an industry panel",
+    href: "/work/scf",
+  },
+  {
+    skill: "Interface and prototype design, plus documented AI verification",
+    evidence: "WWS flows for two user groups, and four dated AI disclosures",
+    href: "/work/wws",
   },
 ];
 

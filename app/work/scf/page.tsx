@@ -1,7 +1,7 @@
 import CaseStudy from "../../components/CaseStudy";
 
 export const metadata = {
-  title: "SCF Protocol — Thinh Ngo",
+  title: "SCF Protocol · Thinh Ngo",
   description:
     "A blockchain protocol that lets banks verify supply-chain payment obligations, unlocking finance for Vietnam's export suppliers. Pitched live to an industry panel. I owned the Verifiable Payables Token layer, anchor-buyer interviews, and ethics synthesis.",
 };
@@ -9,18 +9,19 @@ export const metadata = {
 export default function Page() {
   return (
     <CaseStudy
+      slug="scf"
       n="01"
       title="SCF Protocol"
-      tagline="A blockchain protocol that turns confirmed export orders into working capital for Vietnam's tier-2/3 suppliers — no collateral, no anchor-buyer ERP."
+      tagline="A blockchain protocol that turns confirmed export orders into working capital for Vietnam's tier-2/3 suppliers, with no collateral, no anchor-buyer ERP."
       facts={[
-        { label: "Course", value: "RMIT — ECON1598 Digital Economy Projects (capstone)" },
+        { label: "Course", value: "RMIT, ECON1598 Digital Economy Projects (capstone)" },
         {
           label: "Panel",
           value:
             "Pitched live to Gary Liu (Co-Founder and CEO, Terminal 3; Chair, Web3 Harbour) and Jeffrey Tchui (Executive Director and Head of APAC, Hashgraph)",
         },
         { label: "My role", value: "Payables Token design, anchor-buyer interviews, ethics synthesis" },
-        { label: "Team", value: "4 — I owned the Verifiable Payables Token layer" },
+        { label: "Team", value: "4. I owned the Verifiable Payables Token layer" },
         { label: "Stack", value: "W3C Verifiable Credentials, DIDs, blockchain (VIFC sandbox)" },
         { label: "Output", value: "Live protocol site + pitch" },
       ]}
@@ -38,7 +39,7 @@ export default function Page() {
           heading: "What we built",
           body: (
             <p>
-              A protocol, not a platform. Tier-1 buyers self-attest payment obligations as W3C Verifiable Credentials, so any bank can verify them — no phone call, no anchor-buyer ERP. Layered on top: an AI nudge engine, dual-key co-signing, progressive disclosure for privacy, and AI credit scoring for first-time borrowers.
+              A protocol, not a platform. Tier-1 buyers self-attest payment obligations as W3C Verifiable Credentials, so any bank can verify them: no phone call, no anchor-buyer ERP. Layered on top: an AI nudge engine, dual-key co-signing, progressive disclosure for privacy, and AI credit scoring for first-time borrowers.
             </p>
           ),
         },
@@ -46,7 +47,7 @@ export default function Page() {
           heading: "What I owned",
           body: (
             <p>
-              I designed the Verifiable Payables Token layer and ran empathy interviews with an anchor buyer to ground it in real behaviour. I also led the ethics synthesis — arguing that selective attestation by powerful buyers needs an institutional guardrail, which became the VIFC sandbox.
+              I designed the Verifiable Payables Token layer and ran empathy interviews with an anchor buyer to ground it in real behaviour. I also led the ethics synthesis, arguing that selective attestation by powerful buyers needs an institutional guardrail, which became the VIFC sandbox.
             </p>
           ),
         },
@@ -54,7 +55,7 @@ export default function Page() {
           heading: "Honest framing",
           body: (
             <p>
-              A designed protocol, not a deployed one — and the token&rsquo;s legal status under Vietnamese law is still open, which is why it&rsquo;s scoped to a sandbox. The biggest lesson was human, not cryptographic: signatures fail if the buyer&rsquo;s Purchasing and Finance teams aren&rsquo;t aligned, so we built the behavioural incentives into the protocol itself.
+              A designed protocol, not a deployed one, and the token&rsquo;s legal status under Vietnamese law is still open, which is why it&rsquo;s scoped to a sandbox. The biggest lesson was human, not cryptographic: signatures fail if the buyer&rsquo;s Purchasing and Finance teams aren&rsquo;t aligned, so we built the behavioural incentives into the protocol itself.
             </p>
           ),
         },

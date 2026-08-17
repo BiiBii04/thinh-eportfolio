@@ -21,7 +21,7 @@ export default function Contact() {
           </h2>
 
           <p className="mt-10 max-w-2xl text-lg md:text-xl text-neutral-700 leading-relaxed">
-            I&rsquo;m a final-year RMIT student in Ho Chi Minh City looking for an internship in product, technology, or anywhere business meets building. Reach out and I will reply.
+            I&rsquo;m a final-year RMIT student in Ho Chi Minh City, looking for business analyst work with a path toward product ownership, in enterprise software or emerging tech. Graduate intake or internship, either works. Reach out and I will reply.
           </p>
 
           <ul className="mt-16 md:mt-20 border-t border-neutral-300/80">

@@ -6,10 +6,11 @@ import {
   CAREER_DIRECTION,
   CREDENTIALS,
   EDUCATION,
+  SKILLS,
 } from "../data/portfolio";
 
 export const metadata = {
-  title: "About — Thinh Ngo",
+  title: "About · Thinh Ngo",
   description:
     "Thinh Ngo, Business Analyst moving toward Product Owner. The method behind the portfolio, and an honest reading of RMIT's Graduate Capability Framework: two capabilities I lead with, one I am still building.",
 };
@@ -38,11 +39,13 @@ export default function AboutPage() {
                 early is worth more than a proposal nobody can build.
               </p>
               <p>
-                Construction contracts, warehouse handling, energy trading,
-                ride-hailing, supply chain finance, real estate. Six industries,
-                and I diagnosed every one the same way: find who knows something
-                the other side does not, price what that costs them, then test a
-                technology against that diagnosis instead of assuming it in.
+                Supply chain finance, warehouse handling, energy trading,
+                ride-hailing, agricultural supply chains, microfinance lending.
+                Six markets, and I diagnosed every one the same way: find who
+                knows something the other side does not, price what that costs
+                them, then test a technology against that diagnosis instead of
+                assuming it in. Every one of the six is on this site with the
+                assessed document attached.
               </p>
               <p>
                 The clearest example is my capstone. An industry panel told me the
@@ -83,6 +86,42 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
+
+          {/* Skills first, capabilities second, because the section below argues
+              that the second is what you do with the first. Every skill links to
+              the artefact that evidences it. Data lives in portfolio.ts. */}
+          <Reveal>
+            <section className="mt-28 md:mt-40">
+              <div className="border-t border-foreground/25 pt-5 mb-14 md:mb-20 grid md:grid-cols-12 gap-4 md:gap-12">
+                <h2 className="md:col-span-5 text-2xl md:text-3xl font-medium tracking-[-0.02em] leading-tight">
+                  The skills, and where each one is evidenced
+                </h2>
+                <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
+                  A list of skills is a list of claims. Each line here names the
+                  artefact on this site that shows me using it, so none of them
+                  has to be taken on trust. Then the section below is about what I
+                  did with them, which is the part that is harder to list.
+                </p>
+              </div>
+
+              <ul className="grid md:grid-cols-2 gap-x-12 gap-y-8">
+                {SKILLS.map((s) => (
+                  <li key={s.skill}>
+                    <p className="text-[17px] md:text-lg leading-snug text-neutral-800">
+                      {s.skill}
+                    </p>
+                    <Link
+                      href={s.href}
+                      className="mt-2 inline-block text-[13px] text-neutral-500 hover:text-accent transition"
+                    >
+                      Evidenced by: {s.evidence}{" "}
+                      <span aria-hidden>&rarr;</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </Reveal>
 
           {/* Graduate Capability Framework. The subordinate capability gets the same
               space as the dominant two, because naming it is the point of the model. */}

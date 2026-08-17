@@ -23,12 +23,13 @@ export default function AboutSection() {
             the job.
           </h2>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-neutral-700">
-            Construction contracts, warehouse handling, energy trading,
-            ride-hailing, supply chain finance, real estate. Six industries, and
-            I diagnosed every one the same way: find who knows something the
-            other side does not, price what that costs them, then test a
-            technology against that diagnosis instead of assuming it in. That is
-            the thread through everything on this site, and it is why the work is
+            Supply chain finance, warehouse handling, energy trading,
+            ride-hailing, agricultural supply chains, microfinance lending. Six
+            markets, every one of them on this site with the assessed document
+            attached, and I diagnosed every one the same way: find who knows
+            something the other side does not, price what that costs them, then
+            test a technology against that diagnosis instead of assuming it in.
+            That is the thread through everything here, and it is why the work is
             grouped by what it proves rather than by industry.
           </p>
           <p className="mt-6 text-lg md:text-xl leading-relaxed text-neutral-700">

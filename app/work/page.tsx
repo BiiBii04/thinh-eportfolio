@@ -4,7 +4,7 @@ import DocLinks from "../components/DocLinks";
 import { CATEGORIES, PROJECTS, CAREER_DIRECTION } from "../data/portfolio";
 
 export const metadata = {
-  title: "Work — Thinh Ngo",
+  title: "Projects · Thinh Ngo",
   description:
     "Nine projects grouped by capability: design and build, technology and regulatory assessment, and analysis into decision. Every entry carries its title, author, date and why it matters for the career direction.",
 };

@@ -11,7 +11,7 @@ import {
 } from "../data/portfolio";
 
 export const metadata = {
-  title: "Coursework — Thinh Ngo",
+  title: "Coursework · Thinh Ngo",
   description:
     "Assessed coursework across a dual major in Business and Technology and Blockchain-enabled Business. Every entry shows the mark on RMIT's band scale, what the deliverable was, and the document itself.",
 };
@@ -160,8 +160,8 @@ export default function CourseworkPage() {
                   Courses that produced a project
                 </h2>
                 <p className="md:col-span-6 md:col-start-7 text-[15px] md:text-base text-neutral-600 leading-relaxed">
-                  These five have their work on the projects page instead, so
-                  they are captioned once rather than twice. No marks here
+                  These assessments have their work on the projects page instead,
+                  so they are captioned once rather than twice. No marks here
                   either: most of these projects draw on more than one
                   assessment, and a single mark would land on the wrong document.
                 </p>
@@ -169,7 +169,7 @@ export default function CourseworkPage() {
 
               <ul className="border-t border-neutral-300/80">
                 {COURSE_CROSSREFS.map((c) => (
-                  <li key={c.code} className="border-b border-neutral-300/80">
+                  <li key={c.code + c.slug} className="border-b border-neutral-300/80">
                     <Link
                       href={`/work/${c.slug}`}
                       className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-8 py-6"

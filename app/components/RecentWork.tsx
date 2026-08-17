@@ -39,13 +39,13 @@ const projects: Project[] = [
   },
   {
     slug: "microloan",
-    title: "Microloan Default",
+    title: "Microloan default",
     category: "Machine Learning · Credit Risk",
     preview: "/microloan-preview.png",
   },
   {
     slug: "ups",
-    title: "UPS Location Model",
+    title: "UPS location model",
     category: "Machine Learning · Supply Chain",
     preview: "/ups-preview.png",
   },
@@ -76,7 +76,7 @@ export default function RecentWork() {
       <div className="max-w-7xl mx-auto">
         <p className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-10 md:mb-14 flex items-center gap-3">
           <span className="inline-block w-8 h-px bg-neutral-400" />
-          Recent work
+          Selected projects
         </p>
 
         <ul
@@ -118,7 +118,7 @@ export default function RecentWork() {
             href="/work"
             className="inline-flex items-center gap-2 text-sm font-medium border border-foreground/20 hover:border-accent hover:text-accent transition rounded-full px-5 py-2.5"
           >
-            See all work <span aria-hidden>→</span>
+            All nine projects <span aria-hidden>→</span>
           </TLink>
         </div>
       </div>

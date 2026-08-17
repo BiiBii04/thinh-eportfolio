@@ -1,7 +1,8 @@
 import PageFade from "../components/PageFade";
+import { SKILLS } from "../data/portfolio";
 
 export const metadata = {
-  title: "Resume — Thinh Ngo",
+  title: "Resume · Thinh Ngo",
   description:
     "Ngo Phuc Thinh. RMIT University Vietnam, dual major in Business and Technology plus Blockchain-enabled Business. Business Analyst moving toward Product Owner.",
 };
@@ -26,7 +27,7 @@ export default function Resume() {
             <div>
               <p className="text-xs tracking-[0.22em] uppercase text-neutral-500 mb-3 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-neutral-400" />
-                Resume · Updated June 2026
+                Resume · Updated August 2026
               </p>
               <h1 className="font-medium tracking-[-0.035em] leading-[0.92] text-[clamp(2.5rem,8vw,6rem)]">
                 Ngo Phuc Thinh
@@ -93,7 +94,7 @@ export default function Resume() {
             </Entry>
           </Section>
 
-          <Section label="Experience">
+          <Section label="Work experience">
             <Entry
               title="External Relations Member, ENACTUS RMIT Vietnam"
               sub="Student-led social enterprise organisation"
@@ -160,7 +161,7 @@ export default function Resume() {
             </Entry>
 
             <Entry
-              title="Achievia — AI study-abroad guidance"
+              title="Achievia, AI study-abroad guidance"
               sub="LotusHacks 2026 · Top 20 of 200"
               date="2026"
               href="/work/achievia"
@@ -171,7 +172,7 @@ export default function Resume() {
             </Entry>
 
             <Entry
-              title="WWS — Web-based Workplace Simulation"
+              title="WWS, a web-based workplace simulation"
               sub="RMIT Accessibility Design Competition 2025 · Top 12 Semifinalist"
               date="2025"
               href="/work/wws"
@@ -182,20 +183,32 @@ export default function Resume() {
             </Entry>
           </Section>
 
-          <Section label="What I bring">
-            <ul className="grid md:grid-cols-2 gap-x-10 gap-y-3 text-[17px] leading-relaxed">
-              <li>Translating between technical work and non-technical stakeholders</li>
-              <li>Market research that grounds product decisions in real user pain</li>
-              <li>Pitching, live demos, and presenting under judging conditions</li>
-              <li>Using AI as a builder&rsquo;s tool — shipping interfaces and small apps solo</li>
-              <li>Cost-structure and business-model thinking on early-stage prototypes</li>
-              <li>Finishing what I start, even when the easier move is to drop it</li>
+          <Section label="Skills, and where each one is evidenced">
+            <p className="text-[15px] text-neutral-600 leading-relaxed max-w-2xl">
+              A skill on its own is a claim. Each line below names the artefact
+              on this site that shows me using it, so none of them has to be
+              taken on trust.
+            </p>
+            <ul className="grid md:grid-cols-2 gap-x-10 gap-y-6">
+              {SKILLS.map((s) => (
+                <li key={s.skill}>
+                  <p className="text-[17px] leading-snug">{s.skill}</p>
+                  <a
+                    href={s.href}
+                    className="mt-1.5 inline-block text-[13px] text-neutral-500 hover:text-accent transition underline underline-offset-4 decoration-neutral-300"
+                  >
+                    {s.evidence} <span aria-hidden>→</span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </Section>
 
           <div className="mt-20 pt-10 border-t border-neutral-300/80 flex items-center justify-between flex-wrap gap-4">
             <p className="text-sm text-neutral-600 max-w-lg">
-              Looking for an internship in product, technology, or anywhere business meets building. The fastest path is email.
+              Looking for business analyst work with a path toward product
+              ownership, in enterprise software or emerging tech. Graduate intake
+              or internship. The fastest path is email.
             </p>
             <a
               href="mailto:ngophucthinh2004@gmail.com"

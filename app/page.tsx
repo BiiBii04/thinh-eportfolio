@@ -12,7 +12,7 @@ export default function Home() {
       <RotatingGreeting />
       <PageFade>
         <section className="relative md:flex-1 min-h-[62svh] md:min-h-[100svh] overflow-hidden bg-[#b8b8b8] text-white">
-          {/* Mobile: single column — labels sit directly above a full-width portrait */}
+          {/* Mobile: single column, labels sit directly above a full-width portrait */}
           <div className="md:hidden flex flex-col px-6 pt-24 pb-12">
             <LocationPill />
             <p className="mt-4 text-[11px] tracking-[0.18em] uppercase text-white/80 leading-relaxed">
