@@ -168,7 +168,7 @@ export const PROJECTS: Project[] = [
     whyItMatters:
       "It is the closest thing I have to a business analyst brief carried end to end: map the process, find the constraint, then cost the system that fixes it. The course description is also the only one in either of my majors that names business analysis outright.",
     taught:
-      "That the bottleneck is rarely where the client points. The complaint was about output and the constraint was quality control, and process mapping is what found it. Asking people where the problem is would not have.",
+      "That the bottleneck is rarely the thing people describe. What was visible was hand inspection, shipping errors and reactive support after the sale. Rich Picture, BPMN and Fishbone mapping put the constraint at quality control, and no amount of asking people where the problem was would have got there.",
     capabilities: ["Expert"],
     hasPage: true,
     preview: "/apec-preview.png",
