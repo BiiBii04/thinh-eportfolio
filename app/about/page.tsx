@@ -41,11 +41,11 @@ export default function AboutPage() {
               <p>
                 Supply chain finance, warehouse handling, energy trading,
                 ride-hailing, agricultural supply chains, microfinance lending.
-                Six markets, and I diagnosed every one the same way: find who
+                Six of the markets on this site, and I diagnosed every one the same way: find who
                 knows something the other side does not, price what that costs
                 them, then test a technology against that diagnosis instead of
-                assuming it in. Every one of the six is on this site with the
-                assessed document attached.
+                assuming it in. Every one of the six has its assessed
+                document attached.
               </p>
               <p>
                 The clearest example is my capstone. An industry panel told me the

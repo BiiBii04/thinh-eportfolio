@@ -24,8 +24,7 @@ export default function AboutSection() {
           </h2>
           <p className="mt-8 text-lg md:text-xl leading-relaxed text-neutral-700">
             Supply chain finance, warehouse handling, energy trading,
-            ride-hailing, agricultural supply chains, microfinance lending. Six
-            markets, every one of them on this site with the assessed document
+            ride-hailing, agricultural supply chains, microfinance lending. Six of the markets on this site, each with its assessed document
             attached, and I diagnosed every one the same way: find who knows
             something the other side does not, price what that costs them, then
             test a technology against that diagnosis instead of assuming it in.
