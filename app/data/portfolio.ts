@@ -49,7 +49,7 @@ export type Doc = {
 };
 
 /** The three capabilities this site argues. Tags link back to /about. */
-export type CapabilityName = "Digitally Adept" | "Expert" | "Connected";
+export type CapabilityName = "Digitally Adept" | "Critically Engaged" | "Connected";
 
 export type Project = {
   slug: string;
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
       "Section VII of the report records the panel calling the stack over-engineered, my cut from twelve components to five, and where my reasoning differed from theirs. Taking criticism, acting on it, and defending a boundary with evidence is the behaviour I want to be hired for, and this is the only place it exists on the record.",
     taught:
       "That a signature is a behaviour before it is a cryptographic act. The design only holds if the buyer's purchasing and finance teams already agree with each other, so I moved the incentives into the protocol instead of assuming cooperation. I also learned to cut my own work on someone else's evidence and still say which part I was keeping.",
-    capabilities: ["Expert", "Connected"],
+    capabilities: ["Critically Engaged", "Connected"],
     hasPage: true,
     preview: "/scf-preview.jpg",
     external: { label: "scfprotocol.xyz", href: "https://www.scfprotocol.xyz/" },
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
       "It is the scoping story a product owner is hired for, and it carries a change of mind I never got to build: HR will not log into a separate platform, so this should have been a plug-in inside tools they already use.",
     taught:
       "That distribution decides whether a product gets used, and that a mentor telling you the thing is unshippable is worth more than a mentor telling you it is promising. We started on every major disability because it felt fairer, and narrowing to two user groups is what made it designable at all.",
-    capabilities: ["Expert", "Connected"],
+    capabilities: ["Critically Engaged", "Connected"],
     hasPage: true,
     preview: "/wws-preview.png",
   },
@@ -169,7 +169,7 @@ export const PROJECTS: Project[] = [
       "It is the closest thing I have to a business analyst brief carried end to end: map the process, find the constraint, then cost the system that fixes it. The course description is also the only one in either of my majors that names business analysis outright.",
     taught:
       "That the bottleneck is rarely the thing people describe. What was visible was hand inspection, shipping errors and reactive support after the sale. Rich Picture, BPMN and Fishbone mapping put the constraint at quality control, and no amount of asking people where the problem was would have got there.",
-    capabilities: ["Expert"],
+    capabilities: ["Critically Engaged"],
     hasPage: true,
     preview: "/apec-preview.png",
   },
@@ -187,7 +187,7 @@ export const PROJECTS: Project[] = [
       "The model is not the deliverable, the rule is. A credit officer can apply it without running anything. Synthetic teaching dataset, and one feature carries most of the signal, so the method is the value and not the score.",
     taught:
       "That a model nobody can act on is not a deliverable. The screening rule came after the model and it is the only part of the work a credit officer could use on Monday morning. Splitting by application date rather than at random also taught me how easily a good score hides a leak.",
-    capabilities: ["Digitally Adept"],
+    capabilities: ["Critically Engaged"],
     hasPage: true,
     preview: "/microloan-preview.png",
   },
@@ -265,11 +265,11 @@ export const PROJECTS: Project[] = [
     kicker: "An AI security solution for a hospital group",
     category: "design",
     author:
-      "Group of 5, RMIT ISYS3444 Introduction to Enterprise Artificial Intelligence, Assessment 3. I wrote the proposed solution, the stakeholder analysis, the data strategy, the system architecture and part of the Business Model Canvas.",
+      "Group of 5, RMIT ISYS3444 Introduction to Enterprise Artificial Intelligence, Assessment 3. I wrote the account of the AI the group already ran, the proposed solution, the stakeholder analysis, the data strategy, the system architecture and part of the Business Model Canvas.",
     date: "January 2024",
     outcome: "The only assessment in that course pitched live",
     summary:
-      "Analysed from published reporting, no client engagement. The sections I owned are solution definition, stakeholders, data strategy and architecture.",
+      "Analysed from published reporting, no client engagement. The sections I owned are the group's existing AI use, solution definition, stakeholders, data strategy and architecture.",
     whyItMatters:
       "It is the earliest work on this site, and it is already product-owner shaped. January 2024 is a year before I first wrote down that this was the direction, so the work came first and the label came second.",
     hasPage: false,
@@ -405,14 +405,24 @@ export const COURSEWORK: Coursework[] = [
   },
 ];
 
-/** Courses whose artefacts are already project cards. Listed, never captioned twice, and no marks. */
-export const COURSE_CROSSREFS = [
+/**
+ * Courses whose artefacts are already project cards. Listed, never captioned twice, and no marks.
+ * `href` overrides the default `/work/{slug}` link for the two cards that have no case-study page,
+ * so every row opens something instead of 404ing.
+ */
+export const COURSE_CROSSREFS: {
+  code: string;
+  course: string;
+  slug: string;
+  label: string;
+  href?: string;
+}[] = [
   { code: "ECON1598", course: "Digital Economy Projects (capstone)", slug: "scf", label: "SCF Protocol" },
   { code: "ISYS2128", course: "Digital Business Design and Innovation", slug: "apec", label: "APEC Water" },
   { code: "ECON1612", course: "Big Data, Machine Learning and Society, Assessment 2", slug: "microloan", label: "Microloan default prediction" },
   { code: "ECON1612", course: "Big Data, Machine Learning and Society, Assessment 3", slug: "ups", label: "UPS location suitability model" },
-  { code: "INTE2581", course: "Digital Economy and Blockchain Applications", slug: "greenharvest", label: "GreenHarvest" },
-  { code: "ISYS3444", course: "Introduction to Enterprise Artificial Intelligence", slug: "singhealth", label: "SingHealth CyberAI" },
+  { code: "INTE2581", course: "Digital Economy and Blockchain Applications", slug: "greenharvest", label: "GreenHarvest", href: "/inte2581-a2-greenharvest.pdf" },
+  { code: "ISYS3444", course: "Introduction to Enterprise Artificial Intelligence", slug: "singhealth", label: "SingHealth CyberAI", href: "/isys3444-a3-singhealth-report.pdf" },
 ];
 
 export type Entry = {
@@ -515,8 +525,8 @@ export const RECOGNITION: Entry[] = [
 
 export const EXPERIENCE: Entry[] = [
   {
-    title: "Concierge Officer",
-    org: "RMIT University Vietnam, Ho Chi Minh City campus",
+    title: "Student Support Officer",
+    org: "RMIT Student Connect, RMIT University Vietnam, Ho Chi Minh City campus",
     date: "February 2025 to August 2025",
     summary:
       "More than 1,000 student inquiries resolved in two languages, including more than 300 calls handled fully in English.",
@@ -566,21 +576,21 @@ export const CAPABILITIES: {
       "Anyone can open the same models I can. What is mine is which tools I combined and why, and whether I checked the output before I used it. I have four dated instances of documenting that check, two of them scoring generated answers against HELM Instruct, Stanford CRFM's published evaluation framework. All four predate any careers session telling me to do it.",
     evidence: [
       { label: "UPS location model, with a full AI assistance disclosure", href: "/work/ups" },
-      { label: "Microloan model: three models compared, leakage-free time split", href: "/work/microloan" },
+      { label: "Achievia: ElevenLabs voice, Bright Data crawling and Manus AI wired into one product in 36 hours", href: "/work/achievia" },
       { label: "This site, hand-built in Next.js rather than a page builder" },
     ],
   },
   {
-    name: "Expert",
+    name: "Critically Engaged",
     weight: "Dominant",
     rmitWording:
-      "Not depth in one field. Seeing the links across fields and pulling them together on a real problem.",
+      "Independent judgement: evidence-based decisions, assumptions actually challenged, and research done properly.",
     myReading:
-      "A dual major is the structural half of this, and the method is the real half. Six industries diagnosed the same way: information asymmetry in a principal-agent setting, priced as transaction costs, then a technology tested against that diagnosis. Economics, law, systems design and finance have to be in the room at once for that to work.",
+      "Once formal study ends nobody structures the learning path for me, so the judgement has to be mine and the evidence has to carry the argument. In the microloan model I suspected the data was leaking, built a time-based split to prove it, then turned the result into a screening rule a credit officer can apply. On the capstone I cut twelve components to five after an industry panel called the design over-engineered, and section VII records where my reasoning still differed from theirs. Deciding which criticism to act on is the part I want to be hired for.",
     evidence: [
-      { label: "SCF Protocol: finance, blockchain, governance theory and ethics in one proposal", href: "/work/scf" },
+      { label: "SCF Protocol: twelve components cut to five, and the disagreement kept on the record", href: "/work/scf" },
+      { label: "Microloan model: leakage suspected, proved with a time-based split, turned into a screening rule", href: "/work/microloan" },
       { label: "US healthcare under HIPAA, NIST and the EU HLEG guidelines", href: "/coursework" },
-      { label: "APEC Water: operations mapping through to network topology", href: "/work/apec" },
     ],
   },
   {

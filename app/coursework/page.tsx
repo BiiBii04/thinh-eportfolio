@@ -171,7 +171,7 @@ export default function CourseworkPage() {
                 {COURSE_CROSSREFS.map((c) => (
                   <li key={c.code + c.slug} className="border-b border-neutral-300/80">
                     <Link
-                      href={`/work/${c.slug}`}
+                      href={c.href ?? `/work/${c.slug}`}
                       className="group flex flex-col md:flex-row md:items-baseline gap-1 md:gap-8 py-6"
                     >
                       <span className="font-mono text-[11px] tracking-[0.16em] text-neutral-500 w-24 shrink-0 group-hover:text-accent transition">

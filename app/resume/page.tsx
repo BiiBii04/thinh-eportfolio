@@ -12,7 +12,7 @@ const metrics = [
   { v: "Top 20 / 200", k: "LotusHacks 2026, Achievia" },
   { v: "Top 12", k: "RMIT Accessibility Design Competition 2025, WWS" },
   { v: "26 months", k: "ENACTUS External Relations, Mar 2024 to May 2026" },
-  { v: "1,000+", k: "Student inquiries resolved as Concierge, RMIT" },
+  { v: "1,000+", k: "Student inquiries resolved at RMIT Student Connect" },
   { v: "300+", k: "English-language calls handled" },
   { v: "~10", k: "External guest speakers I was point of contact for" },
   { v: "100%", k: "Transaction accuracy in fundraising sales" },
@@ -118,8 +118,8 @@ export default function Resume() {
             </Entry>
 
             <Entry
-              title="Concierge Officer, RMIT University Vietnam"
-              sub="Ho Chi Minh City campus"
+              title="Student Support Officer, RMIT University Vietnam"
+              sub="RMIT Student Connect, Ho Chi Minh City campus"
               date="February 2025 to August 2025"
             >
               <ul className="space-y-2">
